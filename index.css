@@ -18683,7 +18683,7 @@ input[type=number] {
   textarea,
   textarea:active,
   textarea:focus {
-    /* -webkit-appearance: none !important;
+    -webkit-appearance: none !important;
     -moz-appearance: none !important;
     appearance: none !important;
     -webkit-tap-highlight-color: transparent;
@@ -18691,7 +18691,7 @@ input[type=number] {
     outline: 0 !important;
     box-shadow: none !important;
     font-size: inherit;
-    -webkit-touch-callout: none !important */
+    -webkit-touch-callout: none !important
   }
 
   button:active,
