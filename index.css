@@ -13742,7 +13742,11 @@ input[type=number] {
   }
 
   .bike-card__social {
-    right: 0
+    right: 0px;
+  }
+
+  .bike-card__social-link {
+    right: 0px;
   }
 
   .search-popup__search-clear {
