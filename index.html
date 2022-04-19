@@ -1,0 +1,939 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" type="image/x-icon" href="http://127.0.0.1:8000/layouts/build/img/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="index.css" onload="this.media='all'" media="all">
+  <link rel="stylesheet" href="http://127.0.0.1:8000/layouts/build/css/style.min.css" onload="this.media='all'" media="all">
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="index.js"></script>
+  <title>VELOVEX</title>
+  <meta name="description" content="Лучшая платформа для регистрации и поиска информации о велосипедах.">
+</head>
+
+<body class="page-my-bike">
+<header class="header isLogin">
+  <div class="header__navigation">
+      <div class="header__location">
+          <div class="header__logo">
+              <a href="http://127.0.0.1:8000/"><img src="http://127.0.0.1:8000/layouts/build/img/pictures/logo.svg" alt="Velovex"></a>
+          </div>
+
+          <a href="http://127.0.0.1:8000/search" class="header__search">
+              <img src="http://127.0.0.1:8000/layouts/build/img/icons/search-icon.svg" alt="Поиск">
+          </a>
+      </div>
+      <nav class="header__navigation-wrapper">
+          <button class="header__navigation-close">
+              <span class="line"></span>
+              <span class="visually-hidden">Close</span>
+          </button>
+          <ul>
+              <li class="header__navigation-item">
+                  <a href="http://127.0.0.1:8000/check">Проверить номер</a>
+              </li>
+              <li class="header__navigation-item">
+                  <a href="http://127.0.0.1:8000/wanted">Розыск велосипедов</a>
+              </li>
+              <li class="header__navigation-item">
+                  <a href="http://127.0.0.1:8000/about">Что такое <span>VELOVEX?</span></a>
+              </li>
+          </ul>
+      </nav>
+  </div>
+  <div class="header__user">
+      <a href="http://127.0.0.1:8000/search" class="header__search">
+          <img src="http://127.0.0.1:8000/layouts/build/img/icons/search-icon.svg" alt="Поиск">
+      </a>
+      <a href="http://127.0.0.1:8000/settings#activity" class="header__btn-bookmark">
+          <img src="http://127.0.0.1:8000/layouts/build/img/icons/bookmark-icon.svg" alt="Закладка">
+      </a>
+      <a href="http://127.0.0.1:8000/bikes/new" class="header__btn-add">
+          <img src="http://127.0.0.1:8000/layouts/build/img/icons/add-icon.svg" alt="Добавить">
+      </a>
+      <div class="header__profile">
+          <a href="http://127.0.0.1:8000/register" class="header__btn-login">
+              Войти
+          </a>
+          <div class="header__profile-img">
+              <img src="http://127.0.0.1:8000/layouts/build/img/pictures/profile-bg.jpg" alt="">
+          </div>
+          <div class="header__profile-menu">
+              <ul>
+                  <li><div class="header__profile-link header__profile-link--close"><img src="http://127.0.0.1:8000/layouts/build/img/icons/close_x1.svg">Закрыть</div></li>
+                  <li><a href="http://127.0.0.1:8000/users/58" class="header__profile-link">Моя страница</a></li>
+                  <li><a href="http://127.0.0.1:8000/my_bikes" class="header__profile-link">Мои велосипеды</a></li>
+                  <li><a href="http://127.0.0.1:8000/settings" class="header__profile-link">Настройки аккаунта</a></li>
+                  <li><a href="http://127.0.0.1:8000/logout" class="header__profile-logout">Выйти</a></li>
+              </ul>
+          </div>
+      </div>
+  </div>
+</header>
+
+  <div class="loader">
+      <div></div>
+  </div>
+  <main class="page-my-bike__content content isNotEmpty">
+      <div class="page-my-bike__content-header">
+          <h2 class="page-my-bike__content-title">
+              Мои велосипеды
+          </h2>
+
+          <div class="page-my-bike__tabs">
+              <label class="selected">
+                  <input type="radio" name="bike_tabs" value="available" checked="">
+                  <span>Доступные</span>
+              </label>
+              <label>
+                  <input type="radio" name="bike_tabs" value="inSearch">
+                  <span>В розыске</span>
+              </label>
+              <label>
+                  <input type="radio" name="bike_tabs" value="isDeleted">
+                  <span>Удаленные</span>
+              </label>
+          </div>
+      </div>
+
+      <div class="page-my-bike__tabs-content available">
+
+          <div class="page-my-bike__tabs-wrapper" style="display: block">
+              <div class="page-my-bike__tabs-cards page-my-bike__tabs-cards-all ">
+                  <!-- <div class="page-my-bike__sorting">
+                      <label class="page-my-bike__sorting-btn">
+                          <input type="checkbox">
+                          <span>Сортировать</span>
+                      </label>
+                  </div> -->
+                  <div class="sorting">
+                                                                                  <div class="bike-card bike-card__white
+
+
+isDeleted
+  " bike_id="1">
+
+  <div class="bike-card__img">
+      <a href="http://127.0.0.1:8000/bikes/1">
+          <img src="http://127.0.0.1:8000/storagehttp://127.0.0.1:8000/storage/files/vpolOymgOXzupq0YBbQ822a6fa1qDcgeFzoiHbb5.png" alt="Boardman bike-1 model 123">
+      </a>
+  </div>
+  <div class="bike-card__info">
+      <div class="bike-card__info-top">
+          <a href="http://127.0.0.1:8000/bikes/1" class="bike-card__info-title">
+
+              <span>Boardman bike-1 model 123</span>
+          </a>
+          <button class="bike-card__info-number"><span>bike-1</span></button>
+      </div>
+      <div class="content_info">
+          <div class="bike-card__info-content">
+              <span>Модельный год</span><span>123</span>
+              <span>Размер рамы</span><span>43</span>
+              <span>Тип рамы</span><span>Сталь</span>
+               <span>Местонахождение</span><span>, </span>             </div>
+          <div class="control_bike">
+              <form method="POST" class="bike-card__btns">
+              <input type="hidden" name="_token" value="CySNm5ruW79c4RozwcPLCQVJHiCtNBk3yWxIPYzb">                <input type="hidden" name="_method" value="PUT">                <input type="hidden" name="bikes_id" value="1">
+                  <div class="number_form">
+              <button class="bike-card__info-number"><span>bike-1</span></button>
+                  </div>
+                  <div class="buttons_form">
+                      <button class="bike-card__btns-share"></button>
+                                                  <button class="bike-card__btns-alert" data-status="2"></button>                                                <a href="#!" class="bike-card__link bike-card__link-delete_full" data-delete="true">Удалить навсегда</a>
+                      <a href="#!" class="bike-card__link bike-card__link-recover" data-restore="true">Восстановить</a>
+                      <a href="#!" class="bike-card__link bike-card__link-find">
+                                                  <span class="pc" data-status="1">Больше не в розыске</span>                                                <span class="mobile" data-status="1">Не в розыске</span>
+                      </a>
+                  </div>
+          </form>
+          </div>
+      </div>
+  </div>
+  <div class="bike-card__social">
+      <div class="bike-card__social-links">
+          <a href="https://vk.com/share.php?url=http://127.0.0.1:8000/bikes/1" target="_blank" class="bike-card__social-1 bike-card__social-item">ВКонтакте</a>
+          <a href="https://www.facebook.com/sharer.php?u=http://127.0.0.1:8000/bikes/1" class="bike-card__social-2 bike-card__social-item" target="_blank">Facebook</a>
+          <a href="https://telegram.me/share/url?url=http://127.0.0.1:8000/bikes/1" class="bike-card__social-3 bike-card__social-item" target="_blank">Telegram</a>
+          <a href="https://wa.me/?text=http://127.0.0.1:8000/bikes/1" class="bike-card__social-4 bike-card__social-item" target="_blank">WhatsApp</a>
+      </div>
+      <input type="text" class="bike-card__social-link visually-hidden" value="http://127.0.0.1:8000/bikes/1" inputmode="none">
+      <span class="bike-card__social-copy">Скопировать ссылку</span>
+  </div>
+</div>
+                                                          <div class="bike-card bike-card__white
+
+
+isDeleted
+  " bike_id="5">
+
+  <div class="bike-card__img">
+      <a href="http://127.0.0.1:8000/bikes/5">
+          <img src="http://127.0.0.1:8000/storagehttp://127.0.0.1:8000/storage/files/DJnwNMj4Hk9hCHHZdrqbPVc21OhUW4WqkAdHR85T.jpg" alt="All-City bike-6 123">
+      </a>
+  </div>
+  <div class="bike-card__info">
+      <div class="bike-card__info-top">
+          <a href="http://127.0.0.1:8000/bikes/5" class="bike-card__info-title">
+
+              <span>All-City bike-6 123</span>
+          </a>
+          <button class="bike-card__info-number"><span>bike-6</span></button>
+      </div>
+      <div class="content_info">
+          <div class="bike-card__info-content">
+              <span>Модельный год</span><span>123</span>
+              <span>Размер рамы</span><span>43</span>
+              <span>Тип рамы</span><span>Аллюминий</span>
+               <span>Местонахождение</span><span>, </span>             </div>
+          <div class="control_bike">
+              <form method="POST" class="bike-card__btns">
+              <input type="hidden" name="_token" value="CySNm5ruW79c4RozwcPLCQVJHiCtNBk3yWxIPYzb">                <input type="hidden" name="_method" value="PUT">                <input type="hidden" name="bikes_id" value="5">
+                  <div class="number_form">
+              <button class="bike-card__info-number"><span>bike-6</span></button>
+                  </div>
+                  <div class="buttons_form">
+                      <button class="bike-card__btns-share"></button>
+                                                  <button class="bike-card__btns-alert" data-status="2"></button>                                                <a href="#!" class="bike-card__link bike-card__link-delete_full" data-delete="true">Удалить навсегда</a>
+                      <a href="#!" class="bike-card__link bike-card__link-recover" data-restore="true">Восстановить</a>
+                      <a href="#!" class="bike-card__link bike-card__link-find">
+                                                  <span class="pc" data-status="1">Больше не в розыске</span>                                                <span class="mobile" data-status="1">Не в розыске</span>
+                      </a>
+                  </div>
+          </form>
+          </div>
+      </div>
+  </div>
+  <div class="bike-card__social">
+      <div class="bike-card__social-links">
+          <a href="https://vk.com/share.php?url=http://127.0.0.1:8000/bikes/5" target="_blank" class="bike-card__social-1 bike-card__social-item">ВКонтакте</a>
+          <a href="https://www.facebook.com/sharer.php?u=http://127.0.0.1:8000/bikes/5" class="bike-card__social-2 bike-card__social-item" target="_blank">Facebook</a>
+          <a href="https://telegram.me/share/url?url=http://127.0.0.1:8000/bikes/5" class="bike-card__social-3 bike-card__social-item" target="_blank">Telegram</a>
+          <a href="https://wa.me/?text=http://127.0.0.1:8000/bikes/5" class="bike-card__social-4 bike-card__social-item" target="_blank">WhatsApp</a>
+      </div>
+      <input type="text" class="bike-card__social-link visually-hidden" value="http://127.0.0.1:8000/bikes/5" inputmode="none">
+      <span class="bike-card__social-copy">Скопировать ссылку</span>
+  </div>
+</div>
+                                                          <div class="bike-card bike-card__white
+available
+
+
+  " bike_id="20">
+
+  <div class="bike-card__img">
+      <a href="http://127.0.0.1:8000/bikes/20">
+          <img src="http://127.0.0.1:8000/storage/files/F9RvjuwGEA1UuRn47fzS9oVgIPqnnKCf7cGhQ1EJ.png" alt="Allied Cycle Works 123qwedas 12123112">
+      </a>
+  </div>
+  <div class="bike-card__info">
+      <div class="bike-card__info-top">
+          <a href="http://127.0.0.1:8000/bikes/20" class="bike-card__info-title">
+
+              <span>Allied Cycle Works 123qwedas 12123112</span>
+          </a>
+          <button class="bike-card__info-number"><span>123</span></button>
+      </div>
+      <div class="content_info">
+          <div class="bike-card__info-content">
+              <span>Модельный год</span><span>12123112</span>
+              <span>Размер рамы</span><span>1231123123</span>
+              <span>Тип рамы</span><span>Титан</span>
+               <span>Местонахождение</span><span>Москва, Россия </span>             </div>
+          <div class="control_bike">
+              <form method="POST" class="bike-card__btns">
+              <input type="hidden" name="_token" value="CySNm5ruW79c4RozwcPLCQVJHiCtNBk3yWxIPYzb">                <input type="hidden" name="_method" value="PUT">                <input type="hidden" name="bikes_id" value="20">
+                  <div class="number_form">
+              <button class="bike-card__info-number"><span>123</span></button>
+                  </div>
+                  <div class="buttons_form">
+                      <button class="bike-card__btns-share"></button>
+                                                  <button class="bike-card__btns-alert" data-status="2"></button>                                                <a href="#!" class="bike-card__link bike-card__link-delete_full" data-delete="true">Удалить навсегда</a>
+                      <a href="#!" class="bike-card__link bike-card__link-recover" data-restore="true">Восстановить</a>
+                      <a href="#!" class="bike-card__link bike-card__link-find">
+                                                  <span class="pc" data-status="1">Больше не в розыске</span>                                                <span class="mobile" data-status="1">Не в розыске</span>
+                      </a>
+                  </div>
+          </form>
+          </div>
+      </div>
+  </div>
+  <div class="bike-card__social">
+      <div class="bike-card__social-links">
+          <a href="https://vk.com/share.php?url=http://127.0.0.1:8000/bikes/20" target="_blank" class="bike-card__social-1 bike-card__social-item">ВКонтакте</a>
+          <a href="https://www.facebook.com/sharer.php?u=http://127.0.0.1:8000/bikes/20" class="bike-card__social-2 bike-card__social-item" target="_blank">Facebook</a>
+          <a href="https://telegram.me/share/url?url=http://127.0.0.1:8000/bikes/20" class="bike-card__social-3 bike-card__social-item" target="_blank">Telegram</a>
+          <a href="https://wa.me/?text=http://127.0.0.1:8000/bikes/20" class="bike-card__social-4 bike-card__social-item" target="_blank">WhatsApp</a>
+      </div>
+      <input type="text" class="bike-card__social-link visually-hidden" value="http://127.0.0.1:8000/bikes/20" inputmode="none">
+      <span class="bike-card__social-copy">Скопировать ссылку</span>
+  </div>
+</div>
+                                                          <div class="bike-card bike-card__white
+
+
+isDeleted
+  " bike_id="8">
+
+  <div class="bike-card__img">
+      <a href="http://127.0.0.1:8000/bikes/8">
+          <img src="http://127.0.0.1:8000/storagehttp://127.0.0.1:8000/storage/files/CztMRAub1TH6F0BigxUny97tWWWR4LtDXVq6qyir.jpg" alt="Altruiste Bikes Bike-10 1212">
+      </a>
+  </div>
+  <div class="bike-card__info">
+      <div class="bike-card__info-top">
+          <a href="http://127.0.0.1:8000/bikes/8" class="bike-card__info-title">
+
+              <span>Altruiste Bikes Bike-10 1212</span>
+          </a>
+          <button class="bike-card__info-number"><span>Bike-10</span></button>
+      </div>
+      <div class="content_info">
+          <div class="bike-card__info-content">
+              <span>Модельный год</span><span>1212</span>
+              <span>Размер рамы</span><span>12312</span>
+              <span>Тип рамы</span><span>Титан</span>
+               <span>Местонахождение</span><span>Москва, Россия </span>             </div>
+          <div class="control_bike">
+              <form method="POST" class="bike-card__btns">
+              <input type="hidden" name="_token" value="CySNm5ruW79c4RozwcPLCQVJHiCtNBk3yWxIPYzb">                <input type="hidden" name="_method" value="PUT">                <input type="hidden" name="bikes_id" value="8">
+                  <div class="number_form">
+              <button class="bike-card__info-number"><span>Bike-10</span></button>
+                  </div>
+                  <div class="buttons_form">
+                      <button class="bike-card__btns-share"></button>
+                                                  <button class="bike-card__btns-alert" data-status="2"></button>                                                <a href="#!" class="bike-card__link bike-card__link-delete_full" data-delete="true">Удалить навсегда</a>
+                      <a href="#!" class="bike-card__link bike-card__link-recover" data-restore="true">Восстановить</a>
+                      <a href="#!" class="bike-card__link bike-card__link-find">
+                                                  <span class="pc" data-status="1">Больше не в розыске</span>                                                <span class="mobile" data-status="1">Не в розыске</span>
+                      </a>
+                  </div>
+          </form>
+          </div>
+      </div>
+  </div>
+  <div class="bike-card__social">
+      <div class="bike-card__social-links">
+          <a href="https://vk.com/share.php?url=http://127.0.0.1:8000/bikes/8" target="_blank" class="bike-card__social-1 bike-card__social-item">ВКонтакте</a>
+          <a href="https://www.facebook.com/sharer.php?u=http://127.0.0.1:8000/bikes/8" class="bike-card__social-2 bike-card__social-item" target="_blank">Facebook</a>
+          <a href="https://telegram.me/share/url?url=http://127.0.0.1:8000/bikes/8" class="bike-card__social-3 bike-card__social-item" target="_blank">Telegram</a>
+          <a href="https://wa.me/?text=http://127.0.0.1:8000/bikes/8" class="bike-card__social-4 bike-card__social-item" target="_blank">WhatsApp</a>
+      </div>
+      <input type="text" class="bike-card__social-link visually-hidden" value="http://127.0.0.1:8000/bikes/8" inputmode="none">
+      <span class="bike-card__social-copy">Скопировать ссылку</span>
+  </div>
+</div>
+                                                          <div class="bike-card bike-card__white
+available
+
+
+  " bike_id="10">
+
+  <div class="bike-card__img">
+      <a href="http://127.0.0.1:8000/bikes/10">
+          <img src="http://127.0.0.1:8000/storagehttp://127.0.0.1:8000/storage/files/G5IB3jNN2Mj1jxkR9QP7egUjhf3tmB8MFJ1TfQ6R.png" alt="Москвич Bike-16 125">
+      </a>
+  </div>
+  <div class="bike-card__info">
+      <div class="bike-card__info-top">
+          <a href="http://127.0.0.1:8000/bikes/10" class="bike-card__info-title">
+
+              <span>Москвич Bike-16 125</span>
+          </a>
+          <button class="bike-card__info-number"><span>Bike-16</span></button>
+      </div>
+      <div class="content_info">
+          <div class="bike-card__info-content">
+              <span>Модельный год</span><span>125</span>
+              <span>Размер рамы</span><span>49</span>
+              <span>Тип рамы</span><span>Титан</span>
+               <span>Местонахождение</span><span>Москва, Россия </span>             </div>
+          <div class="control_bike">
+              <form method="POST" class="bike-card__btns">
+              <input type="hidden" name="_token" value="CySNm5ruW79c4RozwcPLCQVJHiCtNBk3yWxIPYzb">                <input type="hidden" name="_method" value="PUT">                <input type="hidden" name="bikes_id" value="10">
+                  <div class="number_form">
+              <button class="bike-card__info-number"><span>Bike-16</span></button>
+                  </div>
+                  <div class="buttons_form">
+                      <button class="bike-card__btns-share"></button>
+                                                  <button class="bike-card__btns-alert" data-status="2"></button>                                                <a href="#!" class="bike-card__link bike-card__link-delete_full" data-delete="true">Удалить навсегда</a>
+                      <a href="#!" class="bike-card__link bike-card__link-recover" data-restore="true">Восстановить</a>
+                      <a href="#!" class="bike-card__link bike-card__link-find">
+                                                  <span class="pc" data-status="1">Больше не в розыске</span>                                                <span class="mobile" data-status="1">Не в розыске</span>
+                      </a>
+                  </div>
+          </form>
+          </div>
+      </div>
+  </div>
+  <div class="bike-card__social">
+      <div class="bike-card__social-links">
+          <a href="https://vk.com/share.php?url=http://127.0.0.1:8000/bikes/10" target="_blank" class="bike-card__social-1 bike-card__social-item">ВКонтакте</a>
+          <a href="https://www.facebook.com/sharer.php?u=http://127.0.0.1:8000/bikes/10" class="bike-card__social-2 bike-card__social-item" target="_blank">Facebook</a>
+          <a href="https://telegram.me/share/url?url=http://127.0.0.1:8000/bikes/10" class="bike-card__social-3 bike-card__social-item" target="_blank">Telegram</a>
+          <a href="https://wa.me/?text=http://127.0.0.1:8000/bikes/10" class="bike-card__social-4 bike-card__social-item" target="_blank">WhatsApp</a>
+      </div>
+      <input type="text" class="bike-card__social-link visually-hidden" value="http://127.0.0.1:8000/bikes/10" inputmode="none">
+      <span class="bike-card__social-copy">Скопировать ссылку</span>
+  </div>
+</div>
+                                                          <div class="bike-card bike-card__white
+available
+
+
+  " bike_id="11">
+
+  <div class="bike-card__img">
+      <a href="http://127.0.0.1:8000/bikes/11">
+          <img src="http://127.0.0.1:8000/storagehttp://127.0.0.1:8000/storage/files/RoPUPTVN3cqi1H9HiQrQJbc0lmzYsnDlhDkWkWtP.png" alt="Москвич sdas 123">
+      </a>
+  </div>
+  <div class="bike-card__info">
+      <div class="bike-card__info-top">
+          <a href="http://127.0.0.1:8000/bikes/11" class="bike-card__info-title">
+
+              <span>Москвич sdas 123</span>
+          </a>
+          <button class="bike-card__info-number"><span>asda1</span></button>
+      </div>
+      <div class="content_info">
+          <div class="bike-card__info-content">
+              <span>Модельный год</span><span>123</span>
+              <span>Размер рамы</span><span>49</span>
+              <span>Тип рамы</span><span>Титан</span>
+               <span>Местонахождение</span><span>Москва, Россия </span>             </div>
+          <div class="control_bike">
+              <form method="POST" class="bike-card__btns">
+              <input type="hidden" name="_token" value="CySNm5ruW79c4RozwcPLCQVJHiCtNBk3yWxIPYzb">                <input type="hidden" name="_method" value="PUT">                <input type="hidden" name="bikes_id" value="11">
+                  <div class="number_form">
+              <button class="bike-card__info-number"><span>asda1</span></button>
+                  </div>
+                  <div class="buttons_form">
+                      <button class="bike-card__btns-share"></button>
+                                                  <button class="bike-card__btns-alert" data-status="2"></button>                                                <a href="#!" class="bike-card__link bike-card__link-delete_full" data-delete="true">Удалить навсегда</a>
+                      <a href="#!" class="bike-card__link bike-card__link-recover" data-restore="true">Восстановить</a>
+                      <a href="#!" class="bike-card__link bike-card__link-find">
+                                                  <span class="pc" data-status="1">Больше не в розыске</span>                                                <span class="mobile" data-status="1">Не в розыске</span>
+                      </a>
+                  </div>
+          </form>
+          </div>
+      </div>
+  </div>
+  <div class="bike-card__social">
+      <div class="bike-card__social-links">
+          <a href="https://vk.com/share.php?url=http://127.0.0.1:8000/bikes/11" target="_blank" class="bike-card__social-1 bike-card__social-item">ВКонтакте</a>
+          <a href="https://www.facebook.com/sharer.php?u=http://127.0.0.1:8000/bikes/11" class="bike-card__social-2 bike-card__social-item" target="_blank">Facebook</a>
+          <a href="https://telegram.me/share/url?url=http://127.0.0.1:8000/bikes/11" class="bike-card__social-3 bike-card__social-item" target="_blank">Telegram</a>
+          <a href="https://wa.me/?text=http://127.0.0.1:8000/bikes/11" class="bike-card__social-4 bike-card__social-item" target="_blank">WhatsApp</a>
+      </div>
+      <input type="text" class="bike-card__social-link visually-hidden" value="http://127.0.0.1:8000/bikes/11" inputmode="none">
+      <span class="bike-card__social-copy">Скопировать ссылку</span>
+  </div>
+</div>
+                                                          <div class="bike-card bike-card__white
+available
+
+
+  " bike_id="12">
+
+  <div class="bike-card__img">
+      <a href="http://127.0.0.1:8000/bikes/12">
+          <img src="http://127.0.0.1:8000/storagehttp://127.0.0.1:8000/storage/files/14mGgoPFORG3Gom9qh3bUjJTN7taTbpzqRID3KPo.png" alt="Москвич 123@123 3123">
+      </a>
+  </div>
+  <div class="bike-card__info">
+      <div class="bike-card__info-top">
+          <a href="http://127.0.0.1:8000/bikes/12" class="bike-card__info-title">
+
+              <span>Москвич 123@123 3123</span>
+          </a>
+          <button class="bike-card__info-number"><span>123@123</span></button>
+      </div>
+      <div class="content_info">
+          <div class="bike-card__info-content">
+              <span>Модельный год</span><span>3123</span>
+              <span>Размер рамы</span><span>50</span>
+              <span>Тип рамы</span><span>Аллюминий</span>
+               <span>Местонахождение</span><span>Москва, Россия </span>             </div>
+          <div class="control_bike">
+              <form method="POST" class="bike-card__btns">
+              <input type="hidden" name="_token" value="CySNm5ruW79c4RozwcPLCQVJHiCtNBk3yWxIPYzb">                <input type="hidden" name="_method" value="PUT">                <input type="hidden" name="bikes_id" value="12">
+                  <div class="number_form">
+              <button class="bike-card__info-number"><span>123@123</span></button>
+                  </div>
+                  <div class="buttons_form">
+                      <button class="bike-card__btns-share"></button>
+                                                  <button class="bike-card__btns-alert" data-status="2"></button>                                                <a href="#!" class="bike-card__link bike-card__link-delete_full" data-delete="true">Удалить навсегда</a>
+                      <a href="#!" class="bike-card__link bike-card__link-recover" data-restore="true">Восстановить</a>
+                      <a href="#!" class="bike-card__link bike-card__link-find">
+                                                  <span class="pc" data-status="1">Больше не в розыске</span>                                                <span class="mobile" data-status="1">Не в розыске</span>
+                      </a>
+                  </div>
+          </form>
+          </div>
+      </div>
+  </div>
+  <div class="bike-card__social">
+      <div class="bike-card__social-links">
+          <a href="https://vk.com/share.php?url=http://127.0.0.1:8000/bikes/12" target="_blank" class="bike-card__social-1 bike-card__social-item">ВКонтакте</a>
+          <a href="https://www.facebook.com/sharer.php?u=http://127.0.0.1:8000/bikes/12" class="bike-card__social-2 bike-card__social-item" target="_blank">Facebook</a>
+          <a href="https://telegram.me/share/url?url=http://127.0.0.1:8000/bikes/12" class="bike-card__social-3 bike-card__social-item" target="_blank">Telegram</a>
+          <a href="https://wa.me/?text=http://127.0.0.1:8000/bikes/12" class="bike-card__social-4 bike-card__social-item" target="_blank">WhatsApp</a>
+      </div>
+      <input type="text" class="bike-card__social-link visually-hidden" value="http://127.0.0.1:8000/bikes/12" inputmode="none">
+      <span class="bike-card__social-copy">Скопировать ссылку</span>
+  </div>
+</div>
+                                                          <div class="bike-card bike-card__white
+available
+
+
+  " bike_id="13">
+
+  <div class="bike-card__img">
+      <a href="http://127.0.0.1:8000/bikes/13">
+          <img src="http://127.0.0.1:8000/storagehttp://127.0.0.1:8000/storage/files/Fn7RXikrRAWN23QHRAKAxUcm0pSVZ0eMpZWs3Hn7.png" alt="Argon 18 1232@ 32">
+      </a>
+  </div>
+  <div class="bike-card__info">
+      <div class="bike-card__info-top">
+          <a href="http://127.0.0.1:8000/bikes/13" class="bike-card__info-title">
+
+              <span>Argon 18 1232@ 32</span>
+          </a>
+          <button class="bike-card__info-number"><span>1232@</span></button>
+      </div>
+      <div class="content_info">
+          <div class="bike-card__info-content">
+              <span>Модельный год</span><span>32</span>
+              <span>Размер рамы</span><span>51</span>
+              <span>Тип рамы</span><span>Аллюминий</span>
+               <span>Местонахождение</span><span>Москва, Россия </span>             </div>
+          <div class="control_bike">
+              <form method="POST" class="bike-card__btns">
+              <input type="hidden" name="_token" value="CySNm5ruW79c4RozwcPLCQVJHiCtNBk3yWxIPYzb">                <input type="hidden" name="_method" value="PUT">                <input type="hidden" name="bikes_id" value="13">
+                  <div class="number_form">
+              <button class="bike-card__info-number"><span>1232@</span></button>
+                  </div>
+                  <div class="buttons_form">
+                      <button class="bike-card__btns-share"></button>
+                                                  <button class="bike-card__btns-alert" data-status="2"></button>                                                <a href="#!" class="bike-card__link bike-card__link-delete_full" data-delete="true">Удалить навсегда</a>
+                      <a href="#!" class="bike-card__link bike-card__link-recover" data-restore="true">Восстановить</a>
+                      <a href="#!" class="bike-card__link bike-card__link-find">
+                                                  <span class="pc" data-status="1">Больше не в розыске</span>                                                <span class="mobile" data-status="1">Не в розыске</span>
+                      </a>
+                  </div>
+          </form>
+          </div>
+      </div>
+  </div>
+  <div class="bike-card__social">
+      <div class="bike-card__social-links">
+          <a href="https://vk.com/share.php?url=http://127.0.0.1:8000/bikes/13" target="_blank" class="bike-card__social-1 bike-card__social-item">ВКонтакте</a>
+          <a href="https://www.facebook.com/sharer.php?u=http://127.0.0.1:8000/bikes/13" class="bike-card__social-2 bike-card__social-item" target="_blank">Facebook</a>
+          <a href="https://telegram.me/share/url?url=http://127.0.0.1:8000/bikes/13" class="bike-card__social-3 bike-card__social-item" target="_blank">Telegram</a>
+          <a href="https://wa.me/?text=http://127.0.0.1:8000/bikes/13" class="bike-card__social-4 bike-card__social-item" target="_blank">WhatsApp</a>
+      </div>
+      <input type="text" class="bike-card__social-link visually-hidden" value="http://127.0.0.1:8000/bikes/13" inputmode="none">
+      <span class="bike-card__social-copy">Скопировать ссылку</span>
+  </div>
+</div>
+                                                          <div class="bike-card bike-card__white
+available
+
+
+  " bike_id="14">
+
+  <div class="bike-card__img">
+      <a href="http://127.0.0.1:8000/bikes/14">
+          <img src="http://127.0.0.1:8000/storagehttp://127.0.0.1:8000/storage/files/fLB9Pfg8GzTFexTuzQje3DehfCdkF4obG4vO85HB.png" alt="Самойлов 1231@@ 31">
+      </a>
+  </div>
+  <div class="bike-card__info">
+      <div class="bike-card__info-top">
+          <a href="http://127.0.0.1:8000/bikes/14" class="bike-card__info-title">
+
+              <span>Самойлов 1231@@ 31</span>
+          </a>
+          <button class="bike-card__info-number"><span>Bike-231</span></button>
+      </div>
+      <div class="content_info">
+          <div class="bike-card__info-content">
+              <span>Модельный год</span><span>31</span>
+              <span>Размер рамы</span><span>51</span>
+              <span>Тип рамы</span><span>Аллюминий</span>
+               <span>Местонахождение</span><span>Москва, Россия </span>             </div>
+          <div class="control_bike">
+              <form method="POST" class="bike-card__btns">
+              <input type="hidden" name="_token" value="CySNm5ruW79c4RozwcPLCQVJHiCtNBk3yWxIPYzb">                <input type="hidden" name="_method" value="PUT">                <input type="hidden" name="bikes_id" value="14">
+                  <div class="number_form">
+              <button class="bike-card__info-number"><span>Bike-231</span></button>
+                  </div>
+                  <div class="buttons_form">
+                      <button class="bike-card__btns-share"></button>
+                                                  <button class="bike-card__btns-alert" data-status="2"></button>                                                <a href="#!" class="bike-card__link bike-card__link-delete_full" data-delete="true">Удалить навсегда</a>
+                      <a href="#!" class="bike-card__link bike-card__link-recover" data-restore="true">Восстановить</a>
+                      <a href="#!" class="bike-card__link bike-card__link-find">
+                                                  <span class="pc" data-status="1">Больше не в розыске</span>                                                <span class="mobile" data-status="1">Не в розыске</span>
+                      </a>
+                  </div>
+          </form>
+          </div>
+      </div>
+  </div>
+  <div class="bike-card__social">
+      <div class="bike-card__social-links">
+          <a href="https://vk.com/share.php?url=http://127.0.0.1:8000/bikes/14" target="_blank" class="bike-card__social-1 bike-card__social-item">ВКонтакте</a>
+          <a href="https://www.facebook.com/sharer.php?u=http://127.0.0.1:8000/bikes/14" class="bike-card__social-2 bike-card__social-item" target="_blank">Facebook</a>
+          <a href="https://telegram.me/share/url?url=http://127.0.0.1:8000/bikes/14" class="bike-card__social-3 bike-card__social-item" target="_blank">Telegram</a>
+          <a href="https://wa.me/?text=http://127.0.0.1:8000/bikes/14" class="bike-card__social-4 bike-card__social-item" target="_blank">WhatsApp</a>
+      </div>
+      <input type="text" class="bike-card__social-link visually-hidden" value="http://127.0.0.1:8000/bikes/14" inputmode="none">
+      <span class="bike-card__social-copy">Скопировать ссылку</span>
+  </div>
+</div>
+                                                          <div class="bike-card bike-card__white
+available
+
+
+  " bike_id="15">
+
+  <div class="bike-card__img">
+      <a href="http://127.0.0.1:8000/bikes/15">
+          <img src="http://127.0.0.1:8000/storagehttp://127.0.0.1:8000/storage/files/NOog6MvyGsnNIhJmOYgj8g2knDZ4YtUYHiMBmZTK.png" alt="Москвич assdsdsad 1232">
+      </a>
+  </div>
+  <div class="bike-card__info">
+      <div class="bike-card__info-top">
+          <a href="http://127.0.0.1:8000/bikes/15" class="bike-card__info-title">
+
+              <span>Москвич assdsdsad 1232</span>
+          </a>
+          <button class="bike-card__info-number"><span>Bike-20</span></button>
+      </div>
+      <div class="content_info">
+          <div class="bike-card__info-content">
+              <span>Модельный год</span><span>1232</span>
+              <span>Размер рамы</span><span>44</span>
+              <span>Тип рамы</span><span>Аллюминий</span>
+               <span>Местонахождение</span><span>Москва, Россия </span>             </div>
+          <div class="control_bike">
+              <form method="POST" class="bike-card__btns">
+              <input type="hidden" name="_token" value="CySNm5ruW79c4RozwcPLCQVJHiCtNBk3yWxIPYzb">                <input type="hidden" name="_method" value="PUT">                <input type="hidden" name="bikes_id" value="15">
+                  <div class="number_form">
+              <button class="bike-card__info-number"><span>Bike-20</span></button>
+                  </div>
+                  <div class="buttons_form">
+                      <button class="bike-card__btns-share"></button>
+                                                  <button class="bike-card__btns-alert" data-status="2"></button>                                                <a href="#!" class="bike-card__link bike-card__link-delete_full" data-delete="true">Удалить навсегда</a>
+                      <a href="#!" class="bike-card__link bike-card__link-recover" data-restore="true">Восстановить</a>
+                      <a href="#!" class="bike-card__link bike-card__link-find">
+                                                  <span class="pc" data-status="1">Больше не в розыске</span>                                                <span class="mobile" data-status="1">Не в розыске</span>
+                      </a>
+                  </div>
+          </form>
+          </div>
+      </div>
+  </div>
+  <div class="bike-card__social">
+      <div class="bike-card__social-links">
+          <a href="https://vk.com/share.php?url=http://127.0.0.1:8000/bikes/15" target="_blank" class="bike-card__social-1 bike-card__social-item">ВКонтакте</a>
+          <a href="https://www.facebook.com/sharer.php?u=http://127.0.0.1:8000/bikes/15" class="bike-card__social-2 bike-card__social-item" target="_blank">Facebook</a>
+          <a href="https://telegram.me/share/url?url=http://127.0.0.1:8000/bikes/15" class="bike-card__social-3 bike-card__social-item" target="_blank">Telegram</a>
+          <a href="https://wa.me/?text=http://127.0.0.1:8000/bikes/15" class="bike-card__social-4 bike-card__social-item" target="_blank">WhatsApp</a>
+      </div>
+      <input type="text" class="bike-card__social-link visually-hidden" value="http://127.0.0.1:8000/bikes/15" inputmode="none">
+      <span class="bike-card__social-copy">Скопировать ссылку</span>
+  </div>
+</div>
+                                                          <div class="bike-card bike-card__white
+available
+
+
+  " bike_id="16">
+
+  <div class="bike-card__img">
+      <a href="http://127.0.0.1:8000/bikes/16">
+          <img src="http://127.0.0.1:8000/storagehttp://127.0.0.1:8000/storage/files/A65W99thxF26PVWkaub7SKpYEilrmwgSvr7apjvR.png" alt="Москвич bike-1 1">
+      </a>
+  </div>
+  <div class="bike-card__info">
+      <div class="bike-card__info-top">
+          <a href="http://127.0.0.1:8000/bikes/16" class="bike-card__info-title">
+
+              <span>Москвич bike-1 1</span>
+          </a>
+          <button class="bike-card__info-number"><span>bike-1bike-1</span></button>
+      </div>
+      <div class="content_info">
+          <div class="bike-card__info-content">
+              <span>Модельный год</span><span>1</span>
+              <span>Размер рамы</span><span>44</span>
+              <span>Тип рамы</span><span>Аллюминий</span>
+               <span>Местонахождение</span><span>Москва, Россия </span>             </div>
+          <div class="control_bike">
+              <form method="POST" class="bike-card__btns">
+              <input type="hidden" name="_token" value="CySNm5ruW79c4RozwcPLCQVJHiCtNBk3yWxIPYzb">                <input type="hidden" name="_method" value="PUT">                <input type="hidden" name="bikes_id" value="16">
+                  <div class="number_form">
+              <button class="bike-card__info-number"><span>bike-1bike-1</span></button>
+                  </div>
+                  <div class="buttons_form">
+                      <button class="bike-card__btns-share"></button>
+                                                  <button class="bike-card__btns-alert" data-status="2"></button>                                                <a href="#!" class="bike-card__link bike-card__link-delete_full" data-delete="true">Удалить навсегда</a>
+                      <a href="#!" class="bike-card__link bike-card__link-recover" data-restore="true">Восстановить</a>
+                      <a href="#!" class="bike-card__link bike-card__link-find">
+                                                  <span class="pc" data-status="1">Больше не в розыске</span>                                                <span class="mobile" data-status="1">Не в розыске</span>
+                      </a>
+                  </div>
+          </form>
+          </div>
+      </div>
+  </div>
+  <div class="bike-card__social">
+      <div class="bike-card__social-links">
+          <a href="https://vk.com/share.php?url=http://127.0.0.1:8000/bikes/16" target="_blank" class="bike-card__social-1 bike-card__social-item">ВКонтакте</a>
+          <a href="https://www.facebook.com/sharer.php?u=http://127.0.0.1:8000/bikes/16" class="bike-card__social-2 bike-card__social-item" target="_blank">Facebook</a>
+          <a href="https://telegram.me/share/url?url=http://127.0.0.1:8000/bikes/16" class="bike-card__social-3 bike-card__social-item" target="_blank">Telegram</a>
+          <a href="https://wa.me/?text=http://127.0.0.1:8000/bikes/16" class="bike-card__social-4 bike-card__social-item" target="_blank">WhatsApp</a>
+      </div>
+      <input type="text" class="bike-card__social-link visually-hidden" value="http://127.0.0.1:8000/bikes/16" inputmode="none">
+      <span class="bike-card__social-copy">Скопировать ссылку</span>
+  </div>
+</div>
+                                                          <div class="bike-card bike-card__white
+available
+
+
+  " bike_id="17">
+
+  <div class="bike-card__img">
+      <a href="http://127.0.0.1:8000/bikes/17">
+          <img src="http://127.0.0.1:8000/storage/files/qwa3MkDYi8O24It0SffKEyglbKZfCxcBXK5YQ7uC.png" alt="Москвич 123 12312">
+      </a>
+  </div>
+  <div class="bike-card__info">
+      <div class="bike-card__info-top">
+          <a href="http://127.0.0.1:8000/bikes/17" class="bike-card__info-title">
+
+              <span>Москвич 123 12312</span>
+          </a>
+          <button class="bike-card__info-number"><span>123@123311</span></button>
+      </div>
+      <div class="content_info">
+          <div class="bike-card__info-content">
+              <span>Модельный год</span><span>12312</span>
+              <span>Размер рамы</span><span>43</span>
+              <span>Тип рамы</span><span>Аллюминий</span>
+               <span>Местонахождение</span><span>Москва, Россия </span>             </div>
+          <div class="control_bike">
+              <form method="POST" class="bike-card__btns">
+              <input type="hidden" name="_token" value="CySNm5ruW79c4RozwcPLCQVJHiCtNBk3yWxIPYzb">                <input type="hidden" name="_method" value="PUT">                <input type="hidden" name="bikes_id" value="17">
+                  <div class="number_form">
+              <button class="bike-card__info-number"><span>123@123311</span></button>
+                  </div>
+                  <div class="buttons_form">
+                      <button class="bike-card__btns-share"></button>
+                                                  <button class="bike-card__btns-alert" data-status="2"></button>                                                <a href="#!" class="bike-card__link bike-card__link-delete_full" data-delete="true">Удалить навсегда</a>
+                      <a href="#!" class="bike-card__link bike-card__link-recover" data-restore="true">Восстановить</a>
+                      <a href="#!" class="bike-card__link bike-card__link-find">
+                                                  <span class="pc" data-status="1">Больше не в розыске</span>                                                <span class="mobile" data-status="1">Не в розыске</span>
+                      </a>
+                  </div>
+          </form>
+          </div>
+      </div>
+  </div>
+  <div class="bike-card__social">
+      <div class="bike-card__social-links">
+          <a href="https://vk.com/share.php?url=http://127.0.0.1:8000/bikes/17" target="_blank" class="bike-card__social-1 bike-card__social-item">ВКонтакте</a>
+          <a href="https://www.facebook.com/sharer.php?u=http://127.0.0.1:8000/bikes/17" class="bike-card__social-2 bike-card__social-item" target="_blank">Facebook</a>
+          <a href="https://telegram.me/share/url?url=http://127.0.0.1:8000/bikes/17" class="bike-card__social-3 bike-card__social-item" target="_blank">Telegram</a>
+          <a href="https://wa.me/?text=http://127.0.0.1:8000/bikes/17" class="bike-card__social-4 bike-card__social-item" target="_blank">WhatsApp</a>
+      </div>
+      <input type="text" class="bike-card__social-link visually-hidden" value="http://127.0.0.1:8000/bikes/17" inputmode="none">
+      <span class="bike-card__social-copy">Скопировать ссылку</span>
+  </div>
+</div>
+                                                          <div class="bike-card bike-card__white
+available
+
+
+  " bike_id="18">
+
+  <div class="bike-card__img">
+      <a href="http://127.0.0.1:8000/bikes/18">
+          <img src="http://127.0.0.1:8000/storagehttp://127.0.0.1:8000/storage/files/MbLNRrMyBTK2aTH9SbIcbrLppJSaHaa0OqNVv88T.png" alt="Москвич 123 123">
+      </a>
+  </div>
+  <div class="bike-card__info">
+      <div class="bike-card__info-top">
+          <a href="http://127.0.0.1:8000/bikes/18" class="bike-card__info-title">
+
+              <span>Москвич 123 123</span>
+          </a>
+          <button class="bike-card__info-number"><span>Bike-1123</span></button>
+      </div>
+      <div class="content_info">
+          <div class="bike-card__info-content">
+              <span>Модельный год</span><span>123</span>
+              <span>Размер рамы</span><span>44</span>
+              <span>Тип рамы</span><span>Карбон</span>
+               <span>Местонахождение</span><span>Москва, Россия </span>             </div>
+          <div class="control_bike">
+              <form method="POST" class="bike-card__btns">
+              <input type="hidden" name="_token" value="CySNm5ruW79c4RozwcPLCQVJHiCtNBk3yWxIPYzb">                <input type="hidden" name="_method" value="PUT">                <input type="hidden" name="bikes_id" value="18">
+                  <div class="number_form">
+              <button class="bike-card__info-number"><span>Bike-1123</span></button>
+                  </div>
+                  <div class="buttons_form">
+                      <button class="bike-card__btns-share"></button>
+                                                  <button class="bike-card__btns-alert" data-status="2"></button>                                                <a href="#!" class="bike-card__link bike-card__link-delete_full" data-delete="true">Удалить навсегда</a>
+                      <a href="#!" class="bike-card__link bike-card__link-recover" data-restore="true">Восстановить</a>
+                      <a href="#!" class="bike-card__link bike-card__link-find">
+                                                  <span class="pc" data-status="1">Больше не в розыске</span>                                                <span class="mobile" data-status="1">Не в розыске</span>
+                      </a>
+                  </div>
+          </form>
+          </div>
+      </div>
+  </div>
+  <div class="bike-card__social">
+      <div class="bike-card__social-links">
+          <a href="https://vk.com/share.php?url=http://127.0.0.1:8000/bikes/18" target="_blank" class="bike-card__social-1 bike-card__social-item">ВКонтакте</a>
+          <a href="https://www.facebook.com/sharer.php?u=http://127.0.0.1:8000/bikes/18" class="bike-card__social-2 bike-card__social-item" target="_blank">Facebook</a>
+          <a href="https://telegram.me/share/url?url=http://127.0.0.1:8000/bikes/18" class="bike-card__social-3 bike-card__social-item" target="_blank">Telegram</a>
+          <a href="https://wa.me/?text=http://127.0.0.1:8000/bikes/18" class="bike-card__social-4 bike-card__social-item" target="_blank">WhatsApp</a>
+      </div>
+      <input type="text" class="bike-card__social-link visually-hidden" value="http://127.0.0.1:8000/bikes/18" inputmode="none">
+      <span class="bike-card__social-copy">Скопировать ссылку</span>
+  </div>
+</div>
+                                                          <div class="bike-card bike-card__white
+available
+
+
+  " bike_id="19">
+
+  <div class="bike-card__img">
+      <a href="http://127.0.0.1:8000/bikes/19">
+          <img src="http://127.0.0.1:8000/storagehttp://127.0.0.1:8000/storage/files/w2X8AJNQD7JPW32BvXvedfxATGjHwzr9czjMnpjA.png" alt="Москвич 123@123123 3123123">
+      </a>
+  </div>
+  <div class="bike-card__info">
+      <div class="bike-card__info-top">
+          <a href="http://127.0.0.1:8000/bikes/19" class="bike-card__info-title">
+
+              <span>Москвич 123@123123 3123123</span>
+          </a>
+          <button class="bike-card__info-number"><span>123@123123</span></button>
+      </div>
+      <div class="content_info">
+          <div class="bike-card__info-content">
+              <span>Модельный год</span><span>3123123</span>
+              <span>Размер рамы</span><span>51</span>
+              <span>Тип рамы</span><span>Титан</span>
+               <span>Местонахождение</span><span>Москва, Россия </span>             </div>
+          <div class="control_bike">
+              <form method="POST" class="bike-card__btns">
+              <input type="hidden" name="_token" value="CySNm5ruW79c4RozwcPLCQVJHiCtNBk3yWxIPYzb">                <input type="hidden" name="_method" value="PUT">                <input type="hidden" name="bikes_id" value="19">
+                  <div class="number_form">
+              <button class="bike-card__info-number"><span>123@123123</span></button>
+                  </div>
+                  <div class="buttons_form">
+                      <button class="bike-card__btns-share"></button>
+                                                  <button class="bike-card__btns-alert" data-status="2"></button>                                                <a href="#!" class="bike-card__link bike-card__link-delete_full" data-delete="true">Удалить навсегда</a>
+                      <a href="#!" class="bike-card__link bike-card__link-recover" data-restore="true">Восстановить</a>
+                      <a href="#!" class="bike-card__link bike-card__link-find">
+                                                  <span class="pc" data-status="1">Больше не в розыске</span>                                                <span class="mobile" data-status="1">Не в розыске</span>
+                      </a>
+                  </div>
+          </form>
+          </div>
+      </div>
+  </div>
+  <div class="bike-card__social">
+      <div class="bike-card__social-links">
+          <a href="https://vk.com/share.php?url=http://127.0.0.1:8000/bikes/19" target="_blank" class="bike-card__social-1 bike-card__social-item">ВКонтакте</a>
+          <a href="https://www.facebook.com/sharer.php?u=http://127.0.0.1:8000/bikes/19" class="bike-card__social-2 bike-card__social-item" target="_blank">Facebook</a>
+          <a href="https://telegram.me/share/url?url=http://127.0.0.1:8000/bikes/19" class="bike-card__social-3 bike-card__social-item" target="_blank">Telegram</a>
+          <a href="https://wa.me/?text=http://127.0.0.1:8000/bikes/19" class="bike-card__social-4 bike-card__social-item" target="_blank">WhatsApp</a>
+      </div>
+      <input type="text" class="bike-card__social-link visually-hidden" value="http://127.0.0.1:8000/bikes/19" inputmode="none">
+      <span class="bike-card__social-copy">Скопировать ссылку</span>
+  </div>
+</div>
+                                                                      </div>
+                  <ul class="page-my-bike__list">
+                  </ul>
+              </div>
+
+          </div>
+
+          <div class="page-my-bike__tabs-add">
+              <a href="http://127.0.0.1:8000/bikes/new">
+                  <button>Добавить велосипед</button>
+              </a>
+          </div>
+      </div>
+
+  </main>
+
+
+<footer class="page-start__footer footer">
+  <div class="footer__left">
+      <div class="footer__left-links">
+          <span class="footer__logo">
+              <img src="http://127.0.0.1:8000/layouts/build/img/pictures/logo-white.svg" alt="VELOVEX">
+          </span>
+          <ul class="footer__social">
+              <li class="footer-social-link footer__social-fb">
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">FB</a>
+              </li>
+              <li class="footer-social-link footer__social-vk">
+                  <a href="https://vk.com" target="_blank" rel="noopener noreferrer">VK</a>
+              </li>
+              <li class="footer-social-link footer__social-inst">
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">INST</a>
+              </li>
+              <li class="footer-social-link footer__social-tg">
+                  <a href="https://t.me/velovexme" target="_blank" rel="noopener noreferrer">Встречаемся тут</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div class="footer__right">
+      <ul class="footer__navigation">
+          <li>
+              <a href="http://127.0.0.1:8000/check">Проверить номер</a>
+          </li>
+          <li>
+              <a href="http://127.0.0.1:8000/wanted">Розыск велосипедов</a>
+          </li>
+          <li>
+              <a href="http://127.0.0.1:8000/about">Что такое VELOVEX?</a>
+          </li>
+      </ul>
+      <div class="footer__bottom">
+          <div class="footer__partnership">
+              <span>По вопросам сотрудничества:</span>
+              <a href="mailto:hello@velovex.ru">hello@velovex.ru</a>
+          </div>
+          <div class="footer__info">
+              <div class="footer__info-links">
+                  <a href="http://127.0.0.1:8000/about" target="_blank" class="footer__info-about">О проекте</a>
+                  <a href="http://127.0.0.1:8000/term" target="_blank">Пользовательское соглашение</a>
+              </div>
+              <span>©VELOVEX 2021</span>
+          </div>
+      </div>
+  </div>
+</footer>
+<input type="hidden" id="user_id" value="58">
+<script src="http://127.0.0.1:8000/layouts/build/js/main.js"></script>
+
+
+
+</body></html>
