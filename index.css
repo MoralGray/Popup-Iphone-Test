@@ -3113,7 +3113,7 @@ input[type=file] {
   visibility: hidden;
   width: 100%;
   max-width: 335px;
-  max-height: 0;
+  /* max-height: 0; */
   position: absolute;
   right: -60px;
   bottom: 83px;
@@ -3133,7 +3133,7 @@ input[type=file] {
 .bike-card__social.bike-card__social-active {
   opacity: 1;
   visibility: visible;
-  max-height: none;
+  /* max-height: none; */
   /* -webkit-animation: socialAnimation .2s ease-out forwards; */
   /* animation: socialAnimation .2s ease-out forwards */
 }
