@@ -3115,7 +3115,7 @@ input[type=file] {
   width: 100%;
   max-width: 335px;
   /* max-height: 0; */
-  position: absolute;
+  position: relative;
   right: -60px;
   bottom: 83px;
   padding: 19px 20px 17px;
