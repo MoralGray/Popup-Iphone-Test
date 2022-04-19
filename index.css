@@ -3109,8 +3109,9 @@ input[type=file] {
 }
 
 .bike-card__social {
-  opacity: 0;
-  visibility: hidden;
+  /* opacity: 0; */
+  /* visibility: hidden; */
+  display: none;
   width: 100%;
   max-width: 335px;
   /* max-height: 0; */
@@ -3119,20 +3120,21 @@ input[type=file] {
   bottom: 83px;
   padding: 19px 20px 17px;
   background: #fff;
-  border: 1px solid #000;
+  border: 1px solid red;
   box-sizing: border-box;
   border-radius: 14px;
   text-align: center;
-  -webkit-transform: translateY(10px);
-  transform: translateY(10px);
-  -webkit-transition: .3s ease-out;
-  transition: .3s ease-out;
+  /* -webkit-transform: translateY(10px); */
+  /* transform: translateY(10px); */
+  /* -webkit-transition: .3s ease-out; */
+  /* transition: .3s ease-out; */
   overflow: hidden
 }
 
 .bike-card__social.bike-card__social-active {
-  opacity: 1;
-  visibility: visible;
+  display: block;
+  /* opacity: 1; */
+  /* visibility: visible; */
   /* max-height: none; */
   /* -webkit-animation: socialAnimation .2s ease-out forwards; */
   /* animation: socialAnimation .2s ease-out forwards */
