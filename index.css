@@ -3304,9 +3304,9 @@ input[type=file] {
 }
 
 .bike-card__social-link {
-  /* position: absolute; */
-  /* opacity: 0; */
-  /* right: -200% */
+  position: absolute;
+  opacity: 0;
+  right: -200%
 }
 
 .copy__message {
@@ -13739,7 +13739,7 @@ input[type=number] {
   }
 
   .bike-card__social {
-    /* right: 0 */
+    right: 0
   }
 
   .search-popup__search-clear {
