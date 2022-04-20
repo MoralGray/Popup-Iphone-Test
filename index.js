@@ -11215,7 +11215,7 @@
                      t.hideMobileBtnIf((o >= 10 || n >= 10 || n + s.length >= 10) && a), e(this).get(0).files = o.files, e(this).parents(".edit-form__gallery-block").removeClass("invalid");
                      for (var p = 0; p < o.files.length; p++) {
                         var h = URL.createObjectURL(o.files[p]);
-                        alert(h), console.log(h);
+                        alert(h), console.log(h), document.querySelector(".test-text").innerHTML += h + "<br>";
                         var f = e(this).parents(".page-settings__cover-img").find("div"),
                            m = e(this).parents(".page-settings__personalization-img").find("img"),
                            v = e(this).parents(".page-settings__img").find("img");
