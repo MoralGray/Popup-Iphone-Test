@@ -1246,7 +1246,7 @@ textarea:focus {
 button,
 button:active,
 button:focus {
-  -webkit-appearance: none !important;
+  /* -webkit-appearance: none !important;
   -moz-appearance: none !important;
   appearance: none !important;
   -webkit-tap-highlight-color: transparent;
@@ -1255,7 +1255,7 @@ button:focus {
   -webkit-touch-callout: none !important;
   -webkit-user-select: none;
   -ms-user-select: none;
-  user-select: none
+  user-select: none */
 }
 
 input[type=password]:disabled {
@@ -18683,7 +18683,7 @@ input[type=number] {
   textarea,
   textarea:active,
   textarea:focus {
-    -webkit-appearance: none !important;
+    /* -webkit-appearance: none !important;
     -moz-appearance: none !important;
     appearance: none !important;
     -webkit-tap-highlight-color: transparent;
@@ -18691,13 +18691,13 @@ input[type=number] {
     outline: 0 !important;
     box-shadow: none !important;
     font-size: inherit;
-    -webkit-touch-callout: none !important
+    -webkit-touch-callout: none !important */
   }
 
   button:active,
   button,
   button:focus {
-    -webkit-appearance: none !important;
+    /* -webkit-appearance: none !important;
     -moz-appearance: none !important;
     appearance: none !important;
     -webkit-tap-highlight-color: transparent;
@@ -18706,6 +18706,6 @@ input[type=number] {
     -webkit-touch-callout: none !important;
     -webkit-user-select: none;
     -ms-user-select: none;
-    user-select: none
+    user-select: none */
   }
 }
