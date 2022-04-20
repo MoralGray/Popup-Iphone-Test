@@ -3373,7 +3373,7 @@
       }))
    }
    i.r(t), i.d(t, "default", (function () {
-      return Ve
+      return We
    }));
    var r = {
       body: {},
@@ -8034,7 +8034,7 @@
          }))
       }
    }(Re.a);
-   var Fe = new J(".bike-thumb", {
+   var Fe, Ve = new J(".bike-thumb", {
       allowTouchMove: !0,
       spaceBetween: 10,
       slidesPerView: 5,
@@ -8048,26 +8048,11 @@
          }
       }
    });
-   new J(".bike-swiper", {
-      watchOverflow: !0,
-      loop: !0,
-      navigation: {
-         nextEl: ".bike-button-next",
-         prevEl: ".bike-button-prev"
-      },
-      thumbs: {
-         swiper: Fe
-      },
-      pagination: {
-         el: ".bike-swiper__swiper-pagination",
-         type: "fraction"
-      }
-   });
 
-   function Ve(e) {
-      new J(".bike-fullscreen", {
+   function We(e) {
+      console.log("indx", e), new J(".bike-fullscreen", {
          watchOverflow: !0,
-         loop: !0,
+         loop: !(document.querySelectorAll(".bike-thumb img").length <= 1),
          touchStartPreventDefault: !1,
          navigation: {
             prevEl: ".bike-fullscreen-prev",
@@ -8079,6 +8064,21 @@
          }
       })
    }
+   Re.a, Fe = !(document.querySelectorAll(".bike-thumb img").length <= 1), new J(".bike-swiper", {
+      watchOverflow: !0,
+      loop: Fe,
+      navigation: {
+         nextEl: ".bike-button-next",
+         prevEl: ".bike-button-prev"
+      },
+      thumbs: {
+         swiper: Ve
+      },
+      pagination: {
+         el: ".bike-swiper__swiper-pagination",
+         type: "fraction"
+      }
+   })
 }, function (e, t, i) {
    "use strict";
    i.r(t), i.d(t, "hiddenPrevSocialLinks", (function () {
@@ -11214,8 +11214,9 @@
                      for (var d = 0; d < s.length; d++) s[d] && o.items.add(s[d]);
                      t.hideMobileBtnIf((o >= 10 || n >= 10 || n + s.length >= 10) && a), e(this).get(0).files = o.files, e(this).parents(".edit-form__gallery-block").removeClass("invalid");
                      for (var p = 0; p < o.files.length; p++) {
-                        var h = URL.createObjectURL(o.files[p]),
-                           f = e(this).parents(".page-settings__cover-img").find("div"),
+                        var h = URL.createObjectURL(o.files[p]);
+                        alert(h), console.log(h);
+                        var f = e(this).parents(".page-settings__cover-img").find("div"),
                            m = e(this).parents(".page-settings__personalization-img").find("img"),
                            v = e(this).parents(".page-settings__img").find("img");
                         e(".page-settings__cover-wrapper") && e(".page-settings__cover-wrapper").hasClass("defaultBg") && e(".page-settings__cover-wrapper").removeClass("defaultBg"), 0 != f.length ? f.attr("style", "background-image: url(".concat(h, ")")) : 0 != m.length ? m.attr("src", h) : 0 != v.length ? v.attr("src", h) : t.changeImagesGallery(o.files, h, ".edit-form__gallery-" + a + "wrapper")
@@ -11490,12 +11491,12 @@
    }
 
    function ve(e) {
-      var t = We(),
+      var t = Ye(),
          i = document.querySelector(".btn-black.btn-category"),
          n = document.querySelector(".page-category__content .btn-left.btn-white"),
          a = document.querySelector(".page-bike-edit__content"),
          r = document.querySelector(".page-category__content");
-      e.preventDefault(), t ? null == i || i.classList.add("btn-active") : null == i || i.classList.remove("btn-active"), t ? null == n || n.classList.add("btn-active") : null == n || n.classList.remove("btn-active"), a.classList.remove("bike-edit__mobile-steps"), a.classList.add("bike-edit__mobile-basic"), a.classList.add("popup-active"), document.querySelector(".page-bike-edit__form").style.height = "".concat(r.clientHeight - 160, "px"), ye()
+      e && e.preventDefault(), t ? null == i || i.classList.add("btn-active") : null == i || i.classList.remove("btn-active"), t ? null == n || n.classList.add("btn-active") : null == n || n.classList.remove("btn-active"), a.classList.remove("bike-edit__mobile-steps"), a.classList.add("bike-edit__mobile-basic"), a.classList.add("popup-active"), document.querySelector(".page-bike-edit__form").style.height = "".concat(r.clientHeight, "px"), ye()
    }
 
    function ge(e) {
@@ -11738,7 +11739,7 @@
             })), t) {
             var n = window.location.hash;
             window.location = "".concat(i ? window.location.href.replace("".concat(n), "#basic") : window.location.href.replace("".concat(n), "#other"))
-         } else console.log("submit 4"), document.querySelector(".edit-form__btn-submit-mobile").click()
+         } else document.querySelector(".edit-form__btn-submit-mobile").click()
       })), null == B || B.addEventListener("click", (function (e) {
          var t = !1;
          if (!t) {
@@ -11746,7 +11747,7 @@
             var i = 0;
             if (document.querySelectorAll(".edit-form__basic .required-form__field").forEach((function (e) {
                   !e.value && e.hasAttribute("name") && ("INPUT" === e.tagName ? e.parentNode.classList.add("invalid") : e.classList.add("invalid"), i++)
-               })), Ge() || document.querySelector(".edit-form__color-description").classList.add("invalid"), 0 === i && Ge()) {
+               })), Fe() || document.querySelector(".edit-form__color-description").classList.add("invalid"), 0 === i && Fe()) {
                t = !t;
                var n = window.location.hash;
                window.location = "".concat(window.location.href.replace("".concat(n), "#gallery"))
@@ -12005,7 +12006,7 @@
             }))
       }(), V = document.querySelector(".page-profile__content-all"), W = document.querySelector(".page-profile__content-body"), null == V || V.addEventListener("click", (function () {
          W.classList.add("page-profile__content-active")
-      })), Y = We(), U = document.querySelector(".btn-black.btn-category"), X = document.querySelector(".page-category__content .btn-left.btn-white"), K = document.querySelector(".edit-menu__category-btn"), Q = me() ? U : X, Y && me() ? null == U || U.classList.add("btn-active") : null == U || U.classList.remove("btn-active"), Y ? null == X || X.classList.add("btn-active") : null == X || X.classList.remove("btn-active"), null == K || K.addEventListener("click", (function (e) {
+      })), Y = Ye(), U = document.querySelector(".btn-black.btn-category"), X = document.querySelector(".page-category__content .btn-left.btn-white"), K = document.querySelector(".edit-menu__category-btn"), Q = me() ? U : X, Y && me() ? null == U || U.classList.add("btn-active") : null == U || U.classList.remove("btn-active"), Y ? null == X || X.classList.add("btn-active") : null == X || X.classList.remove("btn-active"), null == K || K.addEventListener("click", (function (e) {
          ve(e)
       })), null == Q || Q.addEventListener("click", (function (e) {
          ge(e)
@@ -12035,9 +12036,9 @@
          var t = e.querySelector("[data-select='first']"),
             i = e.querySelector("[data-select='second']");
          ce()(t).select2({
-            templateResult: Ye
+            templateResult: Ue
          }), ce()(i).select2({
-            templateResult: Ye
+            templateResult: Ue
          })
       })), document.querySelectorAll(".edit-form__fieldset.edit-form--components").forEach((function (e) {
          e.querySelector(".edit-form__field.edit-form__field-select").classList.add("component-active")
@@ -12097,10 +12098,10 @@
             n = document.querySelector(".popup__pro"),
             a = document.querySelector(".page-bike-edit__menu.edit-menu"),
             r = document.querySelector(".page-bike-edit__content").classList.contains("is-new"),
-            s = (document.querySelector(".edit-form__components"), document.querySelector("#gallery .edit-form__btn-submit-basic")),
-            o = (document.querySelector("#gallery .gallery-btn"), document.querySelector("#gallery-save"), document.querySelector(".edit__steps-components"), document.querySelector(".edit-form__location .edit-form__btn-submit")),
+            s = document.querySelector("#gallery .edit-form__btn-submit-basic"),
+            o = document.querySelector(".edit-form__location .edit-form__btn-submit"),
             l = window.location.hash,
-            c = (document.querySelector(".page-bike-edit__content"), !1),
+            c = !1,
             u = !1,
             d = !!r;
          document.querySelector(".edit-form").querySelectorAll(".required-form__field:not(.set_all_brand):not(.components)").forEach((function (e) {
@@ -12109,7 +12110,7 @@
             var t = e.querySelector("[data-select='first']"),
                i = e.querySelector("[data-select='second']");
             t.value && i.value && (c = !0)
-         })), c && (u = !1), d && (null == i || i.classList.remove("hide-notif"), null == i || i.classList.add("show-notif"), null == t || t.classList.add("hide-notif"), s.classList.remove("active-components-block"), o.textContent = "Добавить в базу VELOVEX", o.classList.add("btn-valid-handler")), u && (null == i || i.classList.add("hide-notif"), a.classList.add("basic-notif-hide"), null == n || n.classList.add("hint-block-active"), Re(), "#components" === l ? je() : function () {
+         })), c && (u = !1), d && (null == i || i.classList.remove("hide-notif"), null == i || i.classList.add("show-notif"), null == t || t.classList.add("hide-notif"), s.classList.remove("active-components-block"), o.textContent = "Добавить в базу VELOVEX", o.classList.add("btn-valid-handler"), ve()), u && (null == i || i.classList.add("hide-notif"), a.classList.add("basic-notif-hide"), null == n || n.classList.add("hint-block-active"), He(), "#components" === l ? je() : function () {
             var e = document.querySelector(".page-bike-edit__notif--pro"),
                t = document.querySelector(".edit-form__components"),
                i = document.querySelector("#gallery .edit-form__btn-submit-basic"),
@@ -12121,7 +12122,7 @@
                l = document.querySelector(".edit-form__btn-cancel"),
                c = document.querySelector(".popup__pro");
             ye(), s.textContent = "Сохранить", s.classList.add("btn-valid-handler"), null == c || c.classList.add("hint-block-active"), o.classList.add("border-radius-none"), t.classList.remove("active-components-block"), null == e || e.classList.add("hide-notif"), i.classList.add("active-components-block", "active-kastil-hide"), n.style.display = "none", a.classList.add("btn-black", "btn-edit-phone", "go"), a.classList.remove("gallery__save"), a.textContent = "Сохранить", i.classList.remove("btn-valid-handler"), r.style.display = "none", l.style.display = "none"
-         }()), c && (Re(), je())
+         }()), c && (He(), je())
       }
    }
 
@@ -12161,12 +12162,16 @@
    }
 
    function Re() {
-      console.log("is pro btns"), document.querySelectorAll(".mobile-content__back").forEach((function (e) {
+      return window.location.protocol + "//" + window.location.host + window.location.pathname
+   }
+
+   function He() {
+      document.querySelectorAll(".mobile-content__back").forEach((function (e) {
          return e.href = "#steps"
       }))
    }
 
-   function He() {
+   function Ge() {
       for (var e = !0, t = document.querySelectorAll(".edit-form__basic .required-form__field"), i = 0; i < t.length; i++) {
          var n = t[i];
          if (n.value) e = !0;
@@ -12181,27 +12186,27 @@
             }
             e = !0
          }
-      }!Ge() && me() && _e("basic"), !Fe() && e && me() && _e("gallery"), !e && me() && _e("basic")
-   }
-
-   function Ge() {
-      return document.querySelector(".color-gradient[type=checkbox]:checked")
+      }!Fe() && me() && _e("basic"), !Ve() && e && me() && _e("gallery"), !e && me() && _e("basic")
    }
 
    function Fe() {
+      return document.querySelector(".color-gradient[type=checkbox]:checked")
+   }
+
+   function Ve() {
       var e = me() ? "-mobile" : "";
       return document.querySelector(".edit-form__gallery".concat(e, "-block .active"))
    }
 
-   function Ve() {
+   function We() {
       return document.querySelector(".edit-form__location.edit-form__fieldset .edit-form__components-title").getBoundingClientRect().top + window.scrollY - 350
    }
 
-   function We() {
+   function Ye() {
       return !!document.querySelector(".page-category__form-fieldset label input[type=radio]:checked")
    }
 
-   function Ye(e) {
+   function Ue(e) {
       if (e && e.element) {
          if (e.element.classList.contains("option-was-selected")) return;
          if (e.element.dataset.child) var t = ce()('<span class="select2-dropdown-child">'.concat(ce()(e.element).text(), "</span>"));
@@ -12233,7 +12238,7 @@
          var e = document.querySelector(".page-bike-edit__menu");
          e && !me() && window.addEventListener("scroll", (function (t) {
             var i = document.documentElement.scrollTop || document.body.scrollTop;
-            i >= Ve() ? e.style.opacity = "0" : i <= Ve() && (e.style.opacity = "1")
+            i >= We() ? e.style.opacity = "0" : i <= We() && (e.style.opacity = "1")
          }))
       }(), Ie(), document.querySelectorAll(".about-slider__title.about-slider--active-title").forEach((function (e) {
          var t = e.textContent;
@@ -12245,9 +12250,7 @@
          e.preventDefault(), t = document.getElementById("email").validity.valid, i = document.querySelector(".subscribe__block-wrapper"), t ? i.classList.remove("invalid") : i.classList.add("invalid")
       })), null === (a = document.getElementById("email")) || void 0 === a || a.addEventListener("keyup", (function (e) {
          document.querySelector(".subscribe__block-wrapper").classList.remove("invalid")
-      })), Ie(), window.addEventListener("locationchange", (function () {
-         console.log("location changed!")
-      })), document.addEventListener("keyup", (function (e) {
+      })), Ie(), document.addEventListener("keyup", (function (e) {
          "size" !== e.target.name && "year" !== e.target.name || (e.target.value = e.target.value.replace(/[^0-9.]/g, "").replace(/(\..*)\./g, "$1"))
       })), document.addEventListener("click", (function (e) {
          if (document.querySelector(".hint-active") && function (e) {
@@ -12333,12 +12336,12 @@
                s = he({}, xe(e, n)),
                o = n[s.active - 1] ? n[s.active - 1].querySelector("[data-select='second']").options.selectedIndex : null;
             o && -1 !== o ? Se(a) : ke(a), n[s.active].classList.contains("component-active") && s.active > 0 && (n[s.active].classList.remove("component-active"), null == r || r.classList.remove("invalid-text-btn")), n[s.active].classList.contains("component-active") && (null === (t = n[s.active].querySelector(".invalid")) || void 0 === t || t.classList.remove("invalid"), null === (i = n[s.active].querySelector(".invalid-text")) || void 0 === i || i.classList.remove("invalid-text"), null == r || r.classList.remove("invalid-text-btn"))
-         }(e), e.target.classList.contains("btn-link") && e.target.closest(".popup__pro") && je(), e.target.classList.contains("go-back") && e.target.closest(".go-back") && (window.event.preventDefault(), console.log("prevent"), window.location = document.referrer)
-      })), null === (qe = document.querySelector(".page-main")) || void 0 === qe || qe.classList.remove("menu-header-right"), console.log("remove", document.querySelector(".page-main")), document.querySelectorAll(".edit__steps-gallery label").forEach((function (e) {
+         }(e), e.target.classList.contains("btn-link") && e.target.closest(".popup__pro") && je(), e.target.classList.contains("go-back") && e.target.closest(".go-back") && (window.event.preventDefault(), document.referrer === Re() ? window.location = localStorage.getItem("prevtUrl") ? localStorage.getItem("prevtUrl") : window.location.origin : window.location = document.referrer), (e.target.classList.contains("page-settings__label") || e.target.closest(".page-settings__label")) && e.target.closest(".page-settings") && document.querySelector(".go-back").classList.replace("go-back", "go-back-hash"), (e.target.classList.contains("go-back-hash") || e.target.closest(".go-back-hash")) && e.target.closest(".page-settings") && document.querySelector(".go-back-hash").classList.replace("go-back-hash", "go-back")
+      })), null === (qe = document.querySelector("body")) || void 0 === qe || qe.classList.remove("menu-header-right", "menu-header-left"), localStorage.setItem("currentUrl", Re()), document.referrer !== Re() && localStorage.setItem("prevtUrl", document.referrer), document.querySelectorAll(".edit__steps-gallery label").forEach((function (e) {
          e.querySelector("div").remove(), e.querySelector("input").remove()
       })), document.addEventListener("DOMContentLoaded", (function () {
          var e, t;
-         (He(), document.querySelector(".page-bike-edit") && (document.querySelectorAll(".edit-form__basic.edit-form__fieldset .required-form__field").forEach((function (e) {
+         (Ge(), document.querySelector(".page-bike-edit") && (document.querySelectorAll(".edit-form__basic.edit-form__fieldset .required-form__field").forEach((function (e) {
             "INPUT" === e.tagName ? e.addEventListener("keyup", (function (e) {
                0 === Be() ? Ne().removeAttribute("disabled") : Ne().setAttribute("disabled", !0)
             })) : ce()(e).on("change", (function (e) {
@@ -12356,33 +12359,34 @@
          })));
          var i = document.querySelector(".edit-form");
          if (i) {
-            console.log("submit 1");
             var n = !1;
             i.querySelectorAll(".edit-form__field-input input").forEach((function (e) {
                e.value.length > 0 && e.classList.add("active-input-value")
             })), i.addEventListener("submit", (function (e) {
-               He(), console.log("submit 2"), console.log("e.t", e.target), n || e.preventDefault();
+               Ge(), n || e.preventDefault();
                var t, a, r, s, o = (t = ".edit-form", a = document.querySelector(t).querySelectorAll(".required-form__field:not(.set_all_brand):not(.components)"), r = 0, a.forEach((function (e) {
                   0 === e.value.length && e.hasAttribute("name") && ("INPUT" === e.tagName ? e.parentNode.classList.add("invalid") : e.classList.add("invalid"), e.classList.contains("disable-invalid") && e.classList.remove("invalid"), r++)
                })), r);
                (o += function () {
                   var e = document.querySelectorAll('[data-select="first"]'),
-                     t = !1,
-                     i = 0,
-                     n = null;
-                  e.forEach((function (e) {
-                     var a = e,
-                        r = e.closest(".edit-form__field.edit-form__field-select"),
-                        s = e.closest(".edit-form--components"),
-                        o = r.querySelector('[data-select="second"]'),
-                        l = a.options.selectedIndex,
-                        c = o.options.selectedIndex;
-                     r.classList.contains("component-active") ? l && c <= 0 && (t = !0, i++, a.classList.add("invalid"), o.classList.add("invalid"), ce()(s).children(".edit-form__field.edit-form__field-select.component-active:last").find('[data-select="second"]').addClass("invalid-text"), n = o) : (a.classList.remove("invalid"), o.classList.remove("invalid"))
+                     t = document.querySelector("#components.active-components-block"),
+                     i = !1,
+                     n = 0,
+                     a = null;
+                  console.log("isPro", t), e.forEach((function (e) {
+                     var r = e,
+                        s = e.closest(".edit-form__field.edit-form__field-select"),
+                        o = e.closest(".edit-form--components"),
+                        l = s.querySelector('[data-select="second"]'),
+                        c = r.options.selectedIndex,
+                        u = l.options.selectedIndex,
+                        d = !!t && (c <= 0 || u <= 0);
+                     s.classList.contains("component-active") ? d && (i = !0, n++, r.classList.add("invalid"), l.classList.add("invalid"), ce()(o).children(".edit-form__field.edit-form__field-select.component-active:last").find('[data-select="second"]').addClass("invalid-text"), a = l) : (r.classList.remove("invalid"), l.classList.remove("invalid"))
                   }));
-                  var a = ce()(n).closest(".edit-form--components").children(".component-active:last")[0],
-                     r = ce()(n).closest(".edit-form--components").children(".edit-form--components-block")[0],
-                     s = null == a ? void 0 : a.querySelector('[data-select="second"]');
-                  return t && (null != s && s.classList.add("invalid-text"), r.classList.add("invalid-text-btn")), i
+                  var r = ce()(a).closest(".edit-form--components").children(".component-active:last")[0],
+                     s = ce()(a).closest(".edit-form--components").children(".edit-form--components-block")[0],
+                     o = null == r ? void 0 : r.querySelector('[data-select="second"]');
+                  return i && (null != o && o.classList.add("invalid-text"), s.classList.add("invalid-text-btn")), n
                }(), (o += function () {
                   var e = me() ? "-mobile" : "",
                      t = document.querySelector(".edit-form__gallery".concat(e, "-block .active")),
@@ -12392,11 +12396,11 @@
                      r = 0;
                   return n ? null == a || a.classList.remove("invalid") : (null != a && a.classList.add("invalid"), r++), t ? null == i || i.classList.remove("invalid") : (null != i && i.classList.add("invalid"), r++), r
                }()) > 0) && ye(document.querySelector(".invalid").getBoundingClientRect().top + window.scrollY - 30);
-               !Fe() && me() && _e("gallery"), !Ge() && me() && _e("basic"), 0 == o && Ge() && Fe() && (n = !0, null == (s = document.querySelectorAll(".select__header input[disabled]")) || s.forEach((function (e) {
+               !Ve() && me() && _e("gallery"), !Fe() && me() && _e("basic"), 0 == o && Fe() && Ve() && (n = !0, null == (s = document.querySelectorAll(".select__header input[disabled]")) || s.forEach((function (e) {
                   return e.removeAttribute("disabled")
                })), null == s || s.forEach((function (e) {
                   return e.removeAttribute("disabled")
-               })), console.log("submit 6"), i.submit())
+               })), i.submit())
             }))
          }
          if (ce()("body").hasClass("page-bike-edit")) {
@@ -12417,7 +12421,7 @@
                   width: "element",
                   allowClear: !1,
                   placeholder: "Выберите компонент",
-                  templateResult: Ye,
+                  templateResult: Ue,
                   matcher: r,
                   language: {
                      noResults: function () {
@@ -12428,7 +12432,7 @@
                   width: "element",
                   placeholder: "Введите название",
                   allowClear: !1,
-                  templateResult: Ye,
+                  templateResult: Ue,
                   matcher: r,
                   language: {
                      noResults: function () {
@@ -12438,7 +12442,7 @@
                }), ce()(".material").select2({
                   width: "element",
                   allowClear: !1,
-                  templateResult: Ye,
+                  templateResult: Ue,
                   matcher: r,
                   language: {
                      noResults: function () {
@@ -12453,7 +12457,7 @@
                   placeholder: "Выберите размер"
                }), ce()("[data-select='second']").select2({
                   placeholder: "Начните вводить бренд или модель",
-                  templateResult: Ye,
+                  templateResult: Ue,
                   dropdownCssClass: "second-select2-dropdown"
                })
             })), ce()("[data-select='second']").on("change", (function (e) {
@@ -12486,11 +12490,11 @@
                         s = ce()('[data-select="second"][data-select-id='.concat(a, "]"));
                      e.attr("name", n + "_parent"), s.attr("name", n), s.attr("data-select-id", n), i.attr("name", a), i.attr("data-select-id", a), r.attr("name", a + "_parent")
                   }(i, 0, l, r), s.children().detach(), l.children().detach(), s.append(c), l.append(u), l.val("").trigger("change.select2"), s.val("").trigger("change.select2"), l.select2({
-                     templateResult: Ye,
+                     templateResult: Ue,
                      dropdownCssClass: "second-select2-dropdown",
                      placeholder: "Начните вводить бренд или модель"
                   }), s.select2({
-                     templateResult: Ye,
+                     templateResult: Ue,
                      dropdownCssClass: "second-select2-dropdown",
                      placeholder: "Начните вводить бренд или модель"
                   })
