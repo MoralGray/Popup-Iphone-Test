@@ -273,20 +273,20 @@
                j = "[\\x20\\t\\r\\n\\f]",
                N = "(?:\\\\[\\da-fA-F]{1,6}" + j + "?|\\\\[^\\r\\n\\f]|[\\w-]|[^\0-\\x7f])+",
                z = "\\[" + j + "*(" + N + ")(?:" + j + "*([*^$|!~]?=)" + j + "*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" + N + "))|)" + j + "*\\]",
-               B = ":(" + N + ")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|" + z + ")*)|.*)\\)|)",
-               R = new RegExp(j + "+", "g"),
+               R = ":(" + N + ")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|" + z + ")*)|.*)\\)|)",
+               B = new RegExp(j + "+", "g"),
                H = new RegExp("^" + j + "+|((?:^|[^\\\\])(?:\\\\.)*)" + j + "+$", "g"),
                G = new RegExp("^" + j + "*," + j + "*"),
                F = new RegExp("^" + j + "*([>+~]|" + j + ")" + j + "*"),
                V = new RegExp(j + "|>"),
-               W = new RegExp(B),
+               W = new RegExp(R),
                Y = new RegExp("^" + N + "$"),
                U = {
                   ID: new RegExp("^#(" + N + ")"),
                   CLASS: new RegExp("^\\.(" + N + ")"),
                   TAG: new RegExp("^(" + N + "|[*])"),
                   ATTR: new RegExp("^" + z),
-                  PSEUDO: new RegExp("^" + B),
+                  PSEUDO: new RegExp("^" + R),
                   CHILD: new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(" + j + "*(even|odd|(([+-]|)(\\d*)n|)" + j + "*(?:([+-]|)" + j + "*(\\d+)|))" + j + "*\\)|)", "i"),
                   bool: new RegExp("^(?:" + I + ")$", "i"),
                   needsContext: new RegExp("^" + j + "*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" + j + "*((?:-\\d)?\\d*)" + j + "*\\)|)(?=[^-]|$)", "i")
@@ -486,7 +486,7 @@
                      var t = h.createElement("input");
                      t.setAttribute("type", "hidden"), e.appendChild(t).setAttribute("name", "D"), e.querySelectorAll("[name=d]").length && v.push("name" + j + "*[*^$|!~]?="), 2 !== e.querySelectorAll(":enabled").length && v.push(":enabled", ":disabled"), f.appendChild(e).disabled = !0, 2 !== e.querySelectorAll(":disabled").length && v.push(":enabled", ":disabled"), e.querySelectorAll("*,:x"), v.push(",.*:")
                   }))), (i.matchesSelector = Z.test(y = f.matches || f.webkitMatchesSelector || f.mozMatchesSelector || f.oMatchesSelector || f.msMatchesSelector)) && ue((function (e) {
-                     i.disconnectedMatch = y.call(e, "*"), y.call(e, "[s!='']:x"), g.push("!=", B)
+                     i.disconnectedMatch = y.call(e, "*"), y.call(e, "[s!='']:x"), g.push("!=", R)
                   })), v = v.length && new RegExp(v.join("|")), g = g.length && new RegExp(g.join("|")), t = Z.test(f.compareDocumentPosition), b = t || Z.test(f.contains) ? function (e, t) {
                      var i = 9 === e.nodeType ? e.documentElement : e,
                         n = t && t.parentNode;
@@ -608,7 +608,7 @@
                      ATTR: function (e, t, i) {
                         return function (n) {
                            var a = oe.attr(n, e);
-                           return null == a ? "!=" === t : !t || (a += "", "=" === t ? a === i : "!=" === t ? a !== i : "^=" === t ? i && 0 === a.indexOf(i) : "*=" === t ? i && a.indexOf(i) > -1 : "$=" === t ? i && a.slice(-i.length) === i : "~=" === t ? (" " + a.replace(R, " ") + " ").indexOf(i) > -1 : "|=" === t && (a === i || a.slice(0, i.length + 1) === i + "-"))
+                           return null == a ? "!=" === t : !t || (a += "", "=" === t ? a === i : "!=" === t ? a !== i : "^=" === t ? i && 0 === a.indexOf(i) : "*=" === t ? i && a.indexOf(i) > -1 : "$=" === t ? i && a.slice(-i.length) === i : "~=" === t ? (" " + a.replace(B, " ") + " ").indexOf(i) > -1 : "|=" === t && (a === i || a.slice(0, i.length + 1) === i + "-"))
                         }
                      },
                      CHILD: function (e, t, i, n, a) {
@@ -1114,7 +1114,7 @@
          throw e
       }
 
-      function B(e, t, i, n) {
+      function R(e, t, i, n) {
          var a;
          try {
             e && g(a = e.promise) ? a.call(e).done(t).fail(i) : e && g(a = e.then) ? a.call(e, t, i) : t.apply(void 0, [e].slice(n))
@@ -1264,14 +1264,14 @@
                      n[e] = this, a[e] = arguments.length > 1 ? o.call(arguments) : i, --t || r.resolveWith(n, a)
                   }
                };
-            if (t <= 1 && (B(e, r.done(s(i)).resolve, r.reject, !t), "pending" === r.state() || g(a[i] && a[i].then))) return r.then();
-            for (; i--;) B(a[i], s(i), r.reject);
+            if (t <= 1 && (R(e, r.done(s(i)).resolve, r.reject, !t), "pending" === r.state() || g(a[i] && a[i].then))) return r.then();
+            for (; i--;) R(a[i], s(i), r.reject);
             return r.promise()
          }
       });
-      var R = /^(Eval|Internal|Range|Reference|Syntax|Type|URI)Error$/;
+      var B = /^(Eval|Internal|Range|Reference|Syntax|Type|URI)Error$/;
       k.Deferred.exceptionHook = function (e, t) {
-         i.console && i.console.warn && e && R.test(e.name) && i.console.warn("jQuery.Deferred exception: " + e.message, e.stack, t)
+         i.console && i.console.warn && e && B.test(e.name) && i.console.warn("jQuery.Deferred exception: " + e.message, e.stack, t)
       }, k.readyException = function (e) {
          i.setTimeout((function () {
             throw e
@@ -1989,11 +1989,11 @@
          }
       }));
       var ze = new RegExp("^(" + ie + ")(?!px)[a-z%]+$", "i"),
-         Be = function (e) {
+         Re = function (e) {
             var t = e.ownerDocument.defaultView;
             return t && t.opener || (t = i), t.getComputedStyle(e)
          },
-         Re = function (e, t, i) {
+         Be = function (e, t, i) {
             var n, a, r = {};
             for (a in t) r[a] = e.style[a], e.style[a] = t[a];
             for (a in n = i.call(e), t) e.style[a] = r[a];
@@ -2003,7 +2003,7 @@
 
       function Ge(e, t, i) {
          var n, a, r, s, o = e.style;
-         return (i = i || Be(e)) && ("" !== (s = i.getPropertyValue(t) || i[t]) || se(e) || (s = k.style(e, t)), !v.pixelBoxStyles() && ze.test(s) && He.test(t) && (n = o.width, a = o.minWidth, r = o.maxWidth, o.minWidth = o.maxWidth = o.width = s, s = i.width, o.width = n, o.minWidth = a, o.maxWidth = r)), void 0 !== s ? s + "" : s
+         return (i = i || Re(e)) && ("" !== (s = i.getPropertyValue(t) || i[t]) || se(e) || (s = k.style(e, t)), !v.pixelBoxStyles() && ze.test(s) && He.test(t) && (n = o.width, a = o.minWidth, r = o.maxWidth, o.minWidth = o.maxWidth = o.width = s, s = i.width, o.width = n, o.minWidth = a, o.maxWidth = r)), void 0 !== s ? s + "" : s
       }
 
       function Fe(e, t) {
@@ -2087,7 +2087,7 @@
       }
 
       function tt(e, t, i) {
-         var n = Be(e),
+         var n = Re(e),
             a = (!v.boxSizingReliable() || i) && "border-box" === k.css(e, "boxSizing", !1, n),
             r = a,
             s = Ge(e, t, n),
@@ -2152,12 +2152,12 @@
       }), k.each(["height", "width"], (function (e, t) {
          k.cssHooks[t] = {
             get: function (e, i, n) {
-               if (i) return !Xe.test(k.css(e, "display")) || e.getClientRects().length && e.getBoundingClientRect().width ? tt(e, t, n) : Re(e, Qe, (function () {
+               if (i) return !Xe.test(k.css(e, "display")) || e.getClientRects().length && e.getBoundingClientRect().width ? tt(e, t, n) : Be(e, Qe, (function () {
                   return tt(e, t, n)
                }))
             },
             set: function (e, i, n) {
-               var a, r = Be(e),
+               var a, r = Re(e),
                   s = !v.scrollboxSize() && "absolute" === r.position,
                   o = (s || n) && "border-box" === k.css(e, "boxSizing", !1, r),
                   l = n ? et(e, t, n, o, r) : 0;
@@ -2165,7 +2165,7 @@
             }
          }
       })), k.cssHooks.marginLeft = Fe(v.reliableMarginLeft, (function (e, t) {
-         if (t) return (parseFloat(Ge(e, "marginLeft")) || e.getBoundingClientRect().left - Re(e, {
+         if (t) return (parseFloat(Ge(e, "marginLeft")) || e.getBoundingClientRect().left - Be(e, {
             marginLeft: 0
          }, (function () {
             return e.getBoundingClientRect().left
@@ -2187,7 +2187,7 @@
                var n, a, r = {},
                   s = 0;
                if (Array.isArray(t)) {
-                  for (n = Be(e), a = t.length; s < a; s++) r[t[s]] = k.css(e, t[s], !1, n);
+                  for (n = Re(e), a = t.length; s < a; s++) r[t[s]] = k.css(e, t[s], !1, n);
                   return r
                }
                return void 0 !== i ? k.style(e, t, i) : k.css(e, t)
@@ -2774,7 +2774,7 @@
          Nt = "*/".concat("*"),
          zt = b.createElement("a");
 
-      function Bt(e) {
+      function Rt(e) {
          return function (t, i) {
             "string" != typeof t && (i = t, t = "*");
             var n, a = 0,
@@ -2784,7 +2784,7 @@
          }
       }
 
-      function Rt(e, t, i, n) {
+      function Bt(e, t, i, n) {
          var a = {},
             r = e === jt;
 
@@ -2846,8 +2846,8 @@
          ajaxSetup: function (e, t) {
             return t ? Ht(Ht(e, k.ajaxSettings), t) : Ht(k.ajaxSettings, e)
          },
-         ajaxPrefilter: Bt(It),
-         ajaxTransport: Bt(jt),
+         ajaxPrefilter: Rt(It),
+         ajaxTransport: Rt(jt),
          ajax: function (e, t) {
             "object" == typeof e && (t = e, e = void 0), t = t || {};
             var n, a, r, s, o, l, c, u, d, p, h = k.ajaxSetup({}, t),
@@ -2900,10 +2900,10 @@
                   h.crossDomain = !0
                }
             }
-            if (h.data && h.processData && "string" != typeof h.data && (h.data = k.param(h.data, h.traditional)), Rt(It, h, t, S), c) return S;
+            if (h.data && h.processData && "string" != typeof h.data && (h.data = k.param(h.data, h.traditional)), Bt(It, h, t, S), c) return S;
             for (d in (u = k.event && h.global) && 0 == k.active++ && k.event.trigger("ajaxStart"), h.type = h.type.toUpperCase(), h.hasContent = !Dt.test(h.type), a = h.url.replace(At, ""), h.hasContent ? h.data && h.processData && 0 === (h.contentType || "").indexOf("application/x-www-form-urlencoded") && (h.data = h.data.replace(Pt, "+")) : (p = h.url.slice(a.length), h.data && (h.processData || "string" == typeof h.data) && (a += (St.test(a) ? "&" : "?") + h.data, delete h.data), !1 === h.cache && (a = a.replace(Ot, "$1"), p = (St.test(a) ? "&" : "?") + "_=" + kt.guid++ + p), h.url = a + p), h.ifModified && (k.lastModified[a] && S.setRequestHeader("If-Modified-Since", k.lastModified[a]), k.etag[a] && S.setRequestHeader("If-None-Match", k.etag[a])), (h.data && h.hasContent && !1 !== h.contentType || t.contentType) && S.setRequestHeader("Content-Type", h.contentType), S.setRequestHeader("Accept", h.dataTypes[0] && h.accepts[h.dataTypes[0]] ? h.accepts[h.dataTypes[0]] + ("*" !== h.dataTypes[0] ? ", " + Nt + "; q=0.01" : "") : h.accepts["*"]), h.headers) S.setRequestHeader(d, h.headers[d]);
             if (h.beforeSend && (!1 === h.beforeSend.call(f, S, h) || c)) return S.abort();
-            if (x = "abort", g.add(h.complete), S.done(h.success), S.fail(h.error), n = Rt(jt, h, t, S)) {
+            if (x = "abort", g.add(h.complete), S.done(h.success), S.fail(h.error), n = Bt(jt, h, t, S)) {
                if (S.readyState = 1, u && m.trigger("ajaxSend", [S, h]), c) return S;
                h.async && h.timeout > 0 && (o = i.setTimeout((function () {
                   S.abort("timeout")
@@ -4201,7 +4201,7 @@
          }
       };
 
-   function B(e) {
+   function R(e) {
       var t = s(),
          i = l(),
          n = this.touchEventsData,
@@ -4243,7 +4243,7 @@
       }
    }
 
-   function R(e) {
+   function B(e) {
       var t = s(),
          i = this.touchEventsData,
          n = this.params,
@@ -4678,17 +4678,17 @@
                      }
                      if ("none" !== q.css("display")) {
                         if ("auto" === n.slidesPerView) {
-                           var B = getComputedStyle(q[0]),
-                              R = q[0].style.transform,
+                           var R = getComputedStyle(q[0]),
+                              B = q[0].style.transform,
                               H = q[0].style.webkitTransform;
-                           if (R && (q[0].style.transform = "none"), H && (q[0].style.webkitTransform = "none"), n.roundLengths) S = e.isHorizontal() ? q.outerWidth(!0) : q.outerHeight(!0);
+                           if (B && (q[0].style.transform = "none"), H && (q[0].style.webkitTransform = "none"), n.roundLengths) S = e.isHorizontal() ? q.outerWidth(!0) : q.outerHeight(!0);
                            else {
-                              var G = i(B, "width"),
-                                 F = i(B, "padding-left"),
-                                 V = i(B, "padding-right"),
-                                 W = i(B, "margin-left"),
-                                 Y = i(B, "margin-right"),
-                                 U = B.getPropertyValue("box-sizing");
+                              var G = i(R, "width"),
+                                 F = i(R, "padding-left"),
+                                 V = i(R, "padding-right"),
+                                 W = i(R, "margin-left"),
+                                 Y = i(R, "margin-right"),
+                                 U = R.getPropertyValue("box-sizing");
                               if (U && "border-box" === U) S = G + W + Y;
                               else {
                                  var X = q[0],
@@ -4696,7 +4696,7 @@
                                  S = G + F + V + W + Y + (X.offsetWidth - K)
                               }
                            }
-                           R && (q[0].style.transform = R), H && (q[0].style.webkitTransform = H), n.roundLengths && (S = Math.floor(S))
+                           B && (q[0].style.transform = B), H && (q[0].style.webkitTransform = H), n.roundLengths && (S = Math.floor(S))
                         } else S = (r - (n.slidesPerView - 1) * b) / n.slidesPerView, n.roundLengths && (S = Math.floor(S)), u[O] && (u[O].style[t("width")] = S + "px");
                         u[O] && (u[O].swiperSlideSize = S), f.push(S), n.centeredSlides ? (w = w + S / 2 + _ / 2 + b, 0 === _ && 0 !== O && (w = w - r / 2 - b), 0 === O && (w = w - r / 2 - b), Math.abs(w) < .001 && (w = 0), n.roundLengths && (w = Math.floor(w)), x % n.slidesPerGroup == 0 && p.push(w), h.push(w)) : (n.roundLengths && (w = Math.floor(w)), (x - Math.min(e.params.slidesPerGroupSkip, x)) % e.params.slidesPerGroup == 0 && p.push(w), h.push(w), w = w + S + b), e.virtualSize += S + b, _ = S, x += 1
                      }
@@ -5219,7 +5219,7 @@
                   a = this.wrapperEl,
                   r = this.device,
                   o = this.support;
-               this.onTouchStart = B.bind(this), this.onTouchMove = R.bind(this), this.onTouchEnd = H.bind(this), t.cssMode && (this.onScroll = V.bind(this)), this.onClick = F.bind(this);
+               this.onTouchStart = R.bind(this), this.onTouchMove = B.bind(this), this.onTouchEnd = H.bind(this), t.cssMode && (this.onScroll = V.bind(this)), this.onClick = F.bind(this);
                var l = !!t.nested;
                if (!o.touch && o.pointerEvents) n.addEventListener(i.start, this.onTouchStart, !1), e.addEventListener(i.move, this.onTouchMove, l), e.addEventListener(i.end, this.onTouchEnd, !1);
                else {
@@ -7958,8 +7958,8 @@
          }
       }];
    J.use(ze);
-   var Be = i(0),
-      Re = i.n(Be),
+   var Re = i(0),
+      Be = i.n(Re),
       He = (new J(".hall-slider", {
          pagination: {
             el: ".hall-slider__pagination",
@@ -7992,7 +7992,7 @@
             1 == He.activeIndex ? e(".search-slider__prev").show() : 0 == He.activeIndex && e(".search-slider__prev").hide(), He.activeIndex == He.slides.length - t ? (e(".search-slider__next").attr("aria-disabled", "true"), e(".search-slider__next").attr("disabled", "disabled")) : He.activeIndex == He.slides.length - (t + 1) && "true" === e(".search-slider__next").attr("aria-disabled") && (e(".search-slider__next").attr("aria-disabled", "false"), e(".search-slider__next").removeAttr("disabled"))
          }))
       }
-   }(Re.a);
+   }(Be.a);
    var Ge = new J(".about-slider", {
       pagination: {
          el: ".about-slider__pagination",
@@ -8033,7 +8033,7 @@
             t.classList.contains("about-active-slide") && (t.classList.add("about-slider--main-slide"), t.classList.add("about-slider--main-slide-important")), 1 == Ge.activeIndex ? e(".search-slider__prev").show() : 0 == Ge.activeIndex && e(".search-slider__prev").hide(), Ge.activeIndex == Ge.slides.length - i ? (e(".search-slider__next").attr("aria-disabled", "true"), e(".search-slider__next").attr("disabled", "disabled")) : Ge.activeIndex == Ge.slides.length - (i + 1) && "true" === e(".search-slider__next").attr("aria-disabled") && (e(".search-slider__next").attr("aria-disabled", "false"), e(".search-slider__next").removeAttr("disabled"))
          }))
       }
-   }(Re.a);
+   }(Be.a);
    var Fe, Ve = new J(".bike-thumb", {
       allowTouchMove: !0,
       spaceBetween: 10,
@@ -8064,7 +8064,7 @@
          }
       })
    }
-   Re.a, Fe = !(document.querySelectorAll(".bike-thumb img").length <= 1), new J(".bike-swiper", {
+   Be.a, Fe = !(document.querySelectorAll(".bike-thumb img").length <= 1), new J(".bike-swiper", {
       watchOverflow: !0,
       loop: Fe,
       navigation: {
@@ -10671,32 +10671,32 @@
                                     if (z && s(z, [P].concat(r), d)) a = !0;
                                     else if (0 === N && (L = !0), z && z.matches && z.matches.length > S.matches[0].matches.length) break;
                                     k = f.slice(), p = A, f = [];
-                                    for (var B = 0; B < k.length; B++) {
-                                       var R = k[B],
+                                    for (var R = 0; R < k.length; R++) {
+                                       var B = k[R],
                                           H = !1;
-                                       R.match.jit = R.match.jit || L, R.alternation = R.alternation || C, b(R);
+                                       B.match.jit = B.match.jit || L, B.alternation = B.alternation || C, b(B);
                                        for (var G = 0; G < E.length; G++) {
                                           var F = E[G];
-                                          if ("string" != typeof M || void 0 !== R.alternation && q.includes(R.locator[R.alternation].toString())) {
-                                             if (R.match.nativeDef === F.match.nativeDef) {
-                                                H = !0, b(F, R);
+                                          if ("string" != typeof M || void 0 !== B.alternation && q.includes(B.locator[B.alternation].toString())) {
+                                             if (B.match.nativeDef === F.match.nativeDef) {
+                                                H = !0, b(F, B);
                                                 break
                                              }
-                                             if (l(R, F, c)) {
-                                                b(R, F) && (H = !0, E.splice(E.indexOf(F), 0, R));
+                                             if (l(B, F, c)) {
+                                                b(B, F) && (H = !0, E.splice(E.indexOf(F), 0, B));
                                                 break
                                              }
-                                             if (l(F, R, c)) {
-                                                b(F, R);
+                                             if (l(F, B, c)) {
+                                                b(F, B);
                                                 break
                                              }
-                                             if (X = F, !0 === (U = R).match.static && !0 !== X.match.static && X.match.fn.test(U.match.def, o, e, !1, c, !1)) {
-                                                w(R, F) || void 0 !== u.inputmask.userOptions.keepStatic ? b(R, F) && (H = !0, E.splice(E.indexOf(F), 0, R)) : c.keepStatic = !0;
+                                             if (X = F, !0 === (U = B).match.static && !0 !== X.match.static && X.match.fn.test(U.match.def, o, e, !1, c, !1)) {
+                                                w(B, F) || void 0 !== u.inputmask.userOptions.keepStatic ? b(B, F) && (H = !0, E.splice(E.indexOf(F), 0, B)) : c.keepStatic = !0;
                                                 break
                                              }
                                           }
                                        }
-                                       H || E.push(R)
+                                       H || E.push(B)
                                     }
                                  }
                                  f = T.concat(E), p = e, m = f.length > 0, a = E.length > 0, i = O.slice()
@@ -11214,8 +11214,8 @@
                      for (var d = 0; d < s.length; d++) s[d] && o.items.add(s[d]);
                      t.hideMobileBtnIf((o >= 10 || n >= 10 || n + s.length >= 10) && a), e(this).get(0).files = o.files, e(this).parents(".edit-form__gallery-block").removeClass("invalid");
                      for (var p = 0; p < o.files.length; p++) {
-                        var h = URL.createObjectURL(o.files[p]);
-                        alert(h), console.log(h), document.querySelector(".test-text").innerHTML += h + "<br>";
+                        var h = window.URL.createObjectURL(o.files[p]) || window.webkitURL.createObjectURL(o.files[p]);
+                        alert(h), console.log(h), console.log("cleanFiles.files[i]", o.files[p]), document.querySelector(".test-text").innerHTML += h + "<br>";
                         var f = e(this).parents(".page-settings__cover-img").find("div"),
                            m = e(this).parents(".page-settings__personalization-img").find("img"),
                            v = e(this).parents(".page-settings__img").find("img");
@@ -11421,7 +11421,7 @@
 }, function (e, t, i) {
    "use strict";
    i.r(t);
-   var n, a, r, s, o, l, c, u, d, p, h, f, m, v, g, y, b, w, _, x, k, S, E, T, C, L, M, P, A, O, q, D, $, I, j, N, z, B, R, H, G, F, V, W, Y, U, X, K, Q, Z, J = i(10),
+   var n, a, r, s, o, l, c, u, d, p, h, f, m, v, g, y, b, w, _, x, k, S, E, T, C, L, M, P, A, O, q, D, $, I, j, N, z, R, B, H, G, F, V, W, Y, U, X, K, Q, Z, J = i(10),
       ee = i.n(J),
       te = i(4),
       ie = i.n(te),
@@ -11730,7 +11730,7 @@
                }), 5e3))
             }
          }))
-      }(), j = document.querySelector(".edit-menu__links"), N = document.querySelectorAll(".edit-menu__links li"), z = document.querySelectorAll(".edit-form__fieldset"), B = document.querySelector(".edit-form__basic .btn-continue"), document.querySelector(".edit-form"), null == (R = document.querySelector(".gallery__save")) || R.addEventListener("click", (function (e) {
+      }(), j = document.querySelector(".edit-menu__links"), N = document.querySelectorAll(".edit-menu__links li"), z = document.querySelectorAll(".edit-form__fieldset"), R = document.querySelector(".edit-form__basic .btn-continue"), document.querySelector(".edit-form"), null == (B = document.querySelector(".gallery__save")) || B.addEventListener("click", (function (e) {
          e.preventDefault();
          var t = 0,
             i = 0;
@@ -11740,7 +11740,7 @@
             var n = window.location.hash;
             window.location = "".concat(i ? window.location.href.replace("".concat(n), "#basic") : window.location.href.replace("".concat(n), "#other"))
          } else document.querySelector(".edit-form__btn-submit-mobile").click()
-      })), null == B || B.addEventListener("click", (function (e) {
+      })), null == R || R.addEventListener("click", (function (e) {
          var t = !1;
          if (!t) {
             e.preventDefault();
@@ -12153,7 +12153,7 @@
       })), t
    }
 
-   function Be() {
+   function Re() {
       var e = document.querySelector(".edit-form").querySelectorAll(".required-form__field:not(.set_all_brand):not(.components)"),
          t = 0;
       return e.forEach((function (e) {
@@ -12161,7 +12161,7 @@
       })), t
    }
 
-   function Re() {
+   function Be() {
       return window.location.protocol + "//" + window.location.host + window.location.pathname
    }
 
@@ -12336,18 +12336,18 @@
                s = he({}, xe(e, n)),
                o = n[s.active - 1] ? n[s.active - 1].querySelector("[data-select='second']").options.selectedIndex : null;
             o && -1 !== o ? Se(a) : ke(a), n[s.active].classList.contains("component-active") && s.active > 0 && (n[s.active].classList.remove("component-active"), null == r || r.classList.remove("invalid-text-btn")), n[s.active].classList.contains("component-active") && (null === (t = n[s.active].querySelector(".invalid")) || void 0 === t || t.classList.remove("invalid"), null === (i = n[s.active].querySelector(".invalid-text")) || void 0 === i || i.classList.remove("invalid-text"), null == r || r.classList.remove("invalid-text-btn"))
-         }(e), e.target.classList.contains("btn-link") && e.target.closest(".popup__pro") && je(), e.target.classList.contains("go-back") && e.target.closest(".go-back") && (window.event.preventDefault(), document.referrer === Re() ? window.location = localStorage.getItem("prevtUrl") ? localStorage.getItem("prevtUrl") : window.location.origin : window.location = document.referrer), (e.target.classList.contains("page-settings__label") || e.target.closest(".page-settings__label")) && e.target.closest(".page-settings") && document.querySelector(".go-back").classList.replace("go-back", "go-back-hash"), (e.target.classList.contains("go-back-hash") || e.target.closest(".go-back-hash")) && e.target.closest(".page-settings") && document.querySelector(".go-back-hash").classList.replace("go-back-hash", "go-back")
-      })), null === (qe = document.querySelector("body")) || void 0 === qe || qe.classList.remove("menu-header-right", "menu-header-left"), localStorage.setItem("currentUrl", Re()), document.referrer !== Re() && localStorage.setItem("prevtUrl", document.referrer), document.querySelectorAll(".edit__steps-gallery label").forEach((function (e) {
+         }(e), e.target.classList.contains("btn-link") && e.target.closest(".popup__pro") && je(), e.target.classList.contains("go-back") && e.target.closest(".go-back") && (window.event.preventDefault(), document.referrer === Be() ? window.location = localStorage.getItem("prevtUrl") ? localStorage.getItem("prevtUrl") : window.location.origin : window.location = document.referrer), (e.target.classList.contains("page-settings__label") || e.target.closest(".page-settings__label")) && e.target.closest(".page-settings") && document.querySelector(".go-back").classList.replace("go-back", "go-back-hash"), (e.target.classList.contains("go-back-hash") || e.target.closest(".go-back-hash")) && e.target.closest(".page-settings") && document.querySelector(".go-back-hash").classList.replace("go-back-hash", "go-back")
+      })), null === (qe = document.querySelector("body")) || void 0 === qe || qe.classList.remove("menu-header-right", "menu-header-left"), localStorage.setItem("currentUrl", Be()), document.referrer !== Be() && localStorage.setItem("prevtUrl", document.referrer), document.querySelectorAll(".edit__steps-gallery label").forEach((function (e) {
          e.querySelector("div").remove(), e.querySelector("input").remove()
       })), document.addEventListener("DOMContentLoaded", (function () {
          var e, t;
          (Ge(), document.querySelector(".page-bike-edit") && (document.querySelectorAll(".edit-form__basic.edit-form__fieldset .required-form__field").forEach((function (e) {
             "INPUT" === e.tagName ? e.addEventListener("keyup", (function (e) {
-               0 === Be() ? Ne().removeAttribute("disabled") : Ne().setAttribute("disabled", !0)
+               0 === Re() ? Ne().removeAttribute("disabled") : Ne().setAttribute("disabled", !0)
             })) : ce()(e).on("change", (function (e) {
-               0 === Be() ? Ne().removeAttribute("disabled") : Ne().setAttribute("disabled", !0)
+               0 === Re() ? Ne().removeAttribute("disabled") : Ne().setAttribute("disabled", !0)
             }))
-         })), Be() ? Ne().setAttribute("disabled", !0) : Ne().removeAttribute("disabled")), document.querySelector(".page-settings__mobile-info")) && (document.querySelector(".page-settings__mobile-info span").textContent.length > 23 && (document.querySelector(".page-settings__mobile-info span").textContent = document.querySelector(".page-settings__mobile-info span").textContent.slice(0, 23) + "..."));
+         })), Re() ? Ne().setAttribute("disabled", !0) : Ne().removeAttribute("disabled")), document.querySelector(".page-settings__mobile-info")) && (document.querySelector(".page-settings__mobile-info span").textContent.length > 23 && (document.querySelector(".page-settings__mobile-info span").textContent = document.querySelector(".page-settings__mobile-info span").textContent.slice(0, 23) + "..."));
          se.body.classList.contains("page-main") && (e = document.querySelectorAll(".page-main__photo"), t = document.querySelector(".page-main__animation"), null == e || e.forEach((function (e) {
             return e.addEventListener("mouseenter", (function () {
                t.classList.add("stop-animation")
