@@ -11,6 +11,11 @@
   width: 100px;
 }
 
+html{ 
+    overflow: scroll; 
+    -webkit-overflow-scrolling: touch;
+}
+
 .popup-fixed {
   position: fixed;
   background-color: #ffa500;
