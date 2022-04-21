@@ -22,4 +22,5 @@ html{
   width: 100vw;
   height: 10vh;
   top: calc(100% - 10vh);
+  -webkit-overflow-scrolling: touch;
 }
