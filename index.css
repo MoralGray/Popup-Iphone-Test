@@ -10,3 +10,11 @@
   height: 300px;
   width: 100px;
 }
+
+.popup-fixed {
+  position: fixed;
+  background-color: #ffa500;
+  width: 100vw;
+  height: 10vh;
+  top: calc(100% - 10vh);
+}
